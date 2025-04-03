@@ -3,7 +3,9 @@
 @import "./global.apply.css";
 
 body {
-    background: var(--bg-body);
+    background-image: var(--bg-body);
+    height: 100dvh;
+    background-attachment: fixed;
     color: var(--foreground);
 }
 

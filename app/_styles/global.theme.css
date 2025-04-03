@@ -13,8 +13,8 @@
   --white80: #eeeeeecc;
   --white25: #eeeeee80;
 
-  --bg-body: linear-gradient(310deg, #fafafa 0%, #fafafa 23%, #fff 23%, #fff 72%, #fafafa 72%, #fafafa 100%);
-  --bg-body-dark: linear-gradient(310deg, #000 0%, #000 23%, #060606 23%, #060606 72%, #000 72%, #000 100%);
+  --bg-body: linear-gradient(310deg, #f4f4f4 0%, #f4f4f4 23%, #fff 23%, #fff 72%, #f4f4f4 72%, #f4f4f4 100%);
+  --bg-body-dark: linear-gradient(310deg, #070707 0%, #070707 23%, #000 23%, #000 72%, #070707 72%, #070707 100%);
   --foreground: var(--black);
   --foreground80: var(--black80);
   --foreground25: var(--black25);
@@ -28,7 +28,9 @@
   --shadow-dark: inset -2px -2px 2px rgba(0, 0, 0, 0.75),
     inset 2px 2px 2px rgba(80, 80, 80, 0.25),
     35px 5px 50px rgba(0, 0, 0, 0.75);
+
 }
+
 
 [data-theme='dark'] {
   --bg-body: var(--bg-body-dark);

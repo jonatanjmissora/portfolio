@@ -16,7 +16,7 @@ const DesktopThemeSwitcher = () => {
     <>
       <button onClick={handleClick} className='hidden sm:flex items-center justify-end gap-4 text-[var(--foreground)] hover:text-[var(--color-primary-hover)]'>
         <SunSVG className="size-7 sm:size-5 2xl:size-7 sun-icon" />
-        <MoonSVG className="size-7 p-1 sm:size-5 2xl:size-7 moon-icon" />
+        <MoonSVG className="size-7 p-1 sm:size-6 2xl:size-7 moon-icon" />
       </button>
 
     </>
