@@ -1,7 +1,7 @@
 :root {
-  --color-primary: #3E327B;
-  --color-primary-hover: #5f51a3;
-  --color-primary25: #9890c4;
+  --color-primary: #963819;
+  --color-primary-hover: #92513b;
+  --color-primary25: #927268;
   --color-secondary: #262536;
   --color-secondary-hover: #3e3d52;
 
@@ -13,8 +13,8 @@
   --white80: #eeeeeecc;
   --white25: #eeeeee80;
 
-  --bg-body: linear-gradient(310deg, #9686e5, #dbd6f5);
-  --bg-body-dark: linear-gradient(310deg, #181623, #1e1b2d);
+  --bg-body: linear-gradient(310deg, #fafafa 0%, #fafafa 23%, #fff 23%, #fff 72%, #fafafa 72%, #fafafa 100%);
+  --bg-body-dark: linear-gradient(310deg, #000 0%, #000 23%, #060606 23%, #060606 72%, #000 72%, #000 100%);
   --foreground: var(--black);
   --foreground80: var(--black80);
   --foreground25: var(--black25);
