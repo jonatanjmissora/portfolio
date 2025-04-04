@@ -1,26 +1,27 @@
-const TECHNOS = [
-    {name: "Nextjs", img: ""},
-    {name: "Astro", img: ""},
-    {name: "Sveltkit", img: ""},
-    {name: "Python", img: ""},
-    {name: "Neon", img: ""},
-    {name: "MongoDB", img: ""},
-    {name: "Supabase", img: ""},
-    {name: "Firebase", img: ""},
-    {name: "Drizzle", img: ""},
-    {name: "Git", img: ""},
-    {name: "Hono", img: ""},
-    {name: "Kinde", img: ""},
-]
+import { TECHNOS } from "@/app/_assets/TechSVG";
 
 export default function Technos() {
+
+    const qnt = TECHNOS.length
+
     return (
-        <article className="flex gap-3">
-            {
-                TECHNOS.map(tech => 
-                    <span key={tech.name}>{tech.name}</span>
-                )
-            }
+        <article
+            className="slider h-[50px] w-3/4 overflow-hidden relative mt-12"
+            style={{ "--width": "100px", "--height": "50px", "--qnt": `${qnt}` } as React.CSSProperties}
+        >
+            <div>
+                {
+                    TECHNOS.map((tech, index) =>
+                        <div key={tech.name}
+                            className="item flex justify-center items-center w-[var(--width)] h-[var(--height)] absolute"
+                            style={{ "--position": `${(index + 1).toString()}` } as React.CSSProperties}
+                        >
+                            {tech.svg}
+                            <span className="text-xl font-bold tracking-wide">{tech.name}</span>
+                        </div>
+                    )
+                }
+            </div>
         </article>
     )
 }
