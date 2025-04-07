@@ -18,6 +18,7 @@
   --foreground: var(--black);
   --foreground80: var(--black80);
   --foreground25: var(--black25);
+  --inv-foreground: var(--white);
 
   --ghost-shadow: 0 0 3px rgb(0, 0, 0, 0.3);
   --ghost-active: rgba(78, 39, 218, 0.2);
@@ -37,6 +38,7 @@
   --foreground: var(--white);
   --foreground75: var(--white80);
   --foreground25: var(--white25);
+  --inv-foreground: #0a0a0a;
   --ghost-shadow: 0 0 3px rgb(255, 255, 255, 0.25);
   --shadow: var(--shadow-dark);
 }

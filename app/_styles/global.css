@@ -2,11 +2,23 @@
 @import "./global.theme.css";
 @import "./global.apply.css";
 
+@property --angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0deg;
+  }
+
+html {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+}
+
 body {
     background-image: var(--bg-body);
     height: 100dvh;
     background-attachment: fixed;
     color: var(--foreground);
+    overflow-x: hidden;
 }
 
 dialog::backdrop {
@@ -129,3 +141,95 @@ textarea:focus {
         opacity: 1;
     }
 }
+
+.carousel .proyect .proyect-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .carousel .proyect.old>.proyect-img {
+    z-index: 2;
+  }
+  
+  .carousel .proyect.actual>.proyect-img {
+    z-index: 3;
+    bottom: 2.5rem;
+    left: 10rem;
+    width: 120px;
+    height: 170px;
+    animation: showImage .5s linear 1 forwards;
+  }
+  
+  @keyframes showImage {
+    to {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+  
+  .carousel .card {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    transform: scale(0.5);
+    opacity: 0.5;
+    transform-origin: center;
+    z-index: -10;
+  }
+  
+  .carousel .card.actual {
+    z-index: 3;
+    animation: showCard 0.5s linear 1 forwards;
+  }
+  
+  @keyframes showCard {
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .thumbnail {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .thumbnail.active::before,
+  .thumbnail.active::after {
+    border-radius: 0.75rem;
+    position: absolute;
+    content: "";
+    right: 0%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: conic-gradient(from var(--angle), rgb(255, 55, 0), orange);
+    animation: autoRotate 2s linear infinite;
+    padding: 2px;
+    box-sizing: unset;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+  
+  .thumbnail.active::before {
+    filter: blur(10px)
+  }
+  
+  @keyframes autoRotate {
+    from {
+      --angle: 0deg;
+    }
+  
+    to {
+      --angle: 360deg
+    }
+  }

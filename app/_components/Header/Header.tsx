@@ -1,7 +1,7 @@
 
 import Link from 'next/link'
 import HeaderLink from './HeaderLink'
-import { NavLinks } from '@/app/_lib/constants'
+import { NAVLINKS } from '@/app/_lib/constants/navlinks'
 import MobilMenu from './MobilMenu'
 import DesktopThemeSwitcher from './DesktopThemeSwitcher'
 import LogoSVG from '@/app/_assets/LogoSVG'
@@ -17,7 +17,7 @@ export default async function Header() {
 
       <nav className='sm:flex space-x-4 hidden'>
         {
-          NavLinks.map((link, i) => (
+          NAVLINKS.map((link, i) => (
             <HeaderLink key={i} href={link.href} text={link.text} />
           ))
         }

@@ -6,7 +6,7 @@ import ThemeSwitcher from "./ThemeSwitcher"
 
 import { usePathname } from "next/navigation"
 import MenuSVG from "@/app/_assets/MenuSVG"
-import { NavLinks } from "@/app/_lib/constants"
+import { NAVLINKS } from "@/app/_lib/constants/navlinks"
 import PlusSvg from "@/app/_assets/PlusSvg"
 
 export default function MobilMenu() {
@@ -49,7 +49,7 @@ const DesktopMenu = ({setShowMenu, pathname }: { setShowMenu: (value: boolean) =
 
       <nav className="flex flex-col gap-8 sm:gap-6 2xl:gap-8 text-center items-center p-10 sm:p-8 2xl:p-10 border-b border-[#ffffff10] py-20">
         {
-          NavLinks.map(link =>
+          NAVLINKS.map(link =>
             <div key={link.text} className="w-full flex justify-end">
               <a className={`tracking-wider font-bold text-3xl py-2 sm:text-xl 2xl:text-2xl w-max pl-8 text-right hover:text-[var(--color-primary-hover)] ${currentPath === link.includes && "border-b border-[var(--white)]"}`} href={link.href}>{link.text}
               </a>
