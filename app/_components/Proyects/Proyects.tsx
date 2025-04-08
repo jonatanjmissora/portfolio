@@ -11,19 +11,19 @@
 //   useEffect(() => {
 //     let nextDom = window.document.getElementById('next');
 //     let prevDom = document.getElementById('prev');
-    
+
 //     let carouselDom = document.querySelector('.carousel');
 //     let SliderDom = carouselDom?.querySelector('.carousel .list');
 //     let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
 //     let thumbnailItemsDom = thumbnailBorderDom?.querySelectorAll('.proyect') ?? [];
-    
+
 //     thumbnailBorderDom?.appendChild(thumbnailItemsDom[0]);
-    
+
 
 //     function showSlider(type){
 //         let  SliderItemsDom = SliderDom?.querySelectorAll('.carousel .list .proyect') ?? [];
 //         let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .proyect');
-        
+
 //         if(type === 'next'){
 //             SliderDom?.appendChild(SliderItemsDom[0]);
 //             thumbnailBorderDom?.appendChild(thumbnailItemsDom[0]);
@@ -33,15 +33,15 @@
 //             thumbnailBorderDom?.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
 //             carouselDom?.classList.add('prev');
 //         }
-        
+
 //     }
 //   }, []) 
-  
+
 
 
 //   return (
 //     <article id="proyects" className="w-screen h-screen relative ">
-        
+
 //         <div className="list">
 
 //           {
@@ -107,7 +107,7 @@ const PROYECTS = [
   {
     id: 1,
     title: "PROYECT 1",
-    img: "/proyects/img1.jpg",
+    img: "/proyects/img5.png",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
     github: "sd",
     link: "sd"
@@ -175,13 +175,13 @@ export default function Home() {
 
             <div key={proyect.id} className={`card flex-1 p-6 px-8 rounded-xl shadow-xl bg-[var(--inv-foreground)]/75 text-black ${actualProyect === proyect.id && "actual"}`}>
               <div className="flex flex-col">
-                <KatoDev className="size-4"/>
+                <KatoDev className="size-4" />
                 <div className="text-3xl font-bold tracking-widest text-[var(--color-primary)]">{proyect.title}</div>
               </div>
               <div className="text-xs py-4 text-[var(--foreground)]">{proyect.description}</div>
               <div className="flex gap-8 ml-auto">
-                {proyect.github && <a href={proyect.github}><GithubSVG className='text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6'/></a>}
-                {proyect.link && <a href={proyect.link}><LinkSVG className='text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6'/></a>}
+                {proyect.github && <a href={proyect.github}><GithubSVG className='text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6' /></a>}
+                {proyect.link && <a href={proyect.link}><LinkSVG className='text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6' /></a>}
               </div>
             </div>
           )
