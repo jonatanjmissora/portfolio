@@ -106,32 +106,32 @@ import LinkSVG from "@/app/_assets/LinkSVG";
 const PROYECTS = [
   {
     id: 1,
-    title: "PROYECT 1",
-    img: "/proyects/img5.png",
+    title: "Bill Dashboard",
+    img: "/proyects/ragazzi.webp",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
     github: "sd",
     link: "sd"
   },
   {
     id: 2,
-    title: "PROYECT 2",
-    img: "/proyects/img2.jpg",
+    title: "Photo Landing",
+    img: "/proyects/rodrigo.webp",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
     github: "sd",
     link: "sd"
   },
   {
     id: 3,
-    title: "PROYECT 3",
-    img: "/proyects/img3.jpg",
+    title: "Hall Landing",
+    img: "/proyects/alem.webp",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
     github: "sd",
     link: "sd"
   },
   {
     id: 4,
-    title: "PROYECT 4",
-    img: "/proyects/img4.jpg",
+    title: "Virtual Wallet",
+    img: "/proyects/dhm.webp",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
     github: "sd",
     link: "sd"
@@ -152,8 +152,13 @@ export default function Home() {
     setOldProyect(actualProyect)
   }
 
+  const handleSelect = (index: number) => {
+    setOldProyect(actualProyect)
+    setActualProyect(index)
+  }
+
   return (
-    <article className="carousel w-screen h-screen bg-violet-900 relative overflow-hidden">
+    <article className="carousel w-screen h-screen  relative overflow-hidden">
 
       {/* IMAGES */}
       {
@@ -161,7 +166,7 @@ export default function Home() {
 
           <div key={proyect.id} className={`proyect w-screen h-screen absolute inset-0 ${proyect.id === actualProyect && "actual"} ${proyect.id === oldProyect && "old"}`}>
             <div className="proyect-img">
-              <Image src={proyect.img} alt={proyect.title} fill className="object-cover" />
+              <Image src={proyect.img} alt={proyect.title} fill className="object-contain" />
             </div>
           </div>
         )
@@ -173,7 +178,7 @@ export default function Home() {
         {
           PROYECTS.map(proyect =>
 
-            <div key={proyect.id} className={`card flex-1 p-6 px-8 rounded-xl shadow-xl bg-[var(--inv-foreground)]/75 text-black ${actualProyect === proyect.id && "actual"}`}>
+            <div key={proyect.id} className={`card flex-1 p-6 px-8 rounded-xl shadow-xl bg-[var(--inv-foreground)]/95 text-[var(--black)] ${actualProyect === proyect.id && "actual"}`}>
               <div className="flex flex-col">
                 <KatoDev className="size-4" />
                 <div className="text-3xl font-bold tracking-widest text-[var(--color-primary)]">{proyect.title}</div>
@@ -195,11 +200,15 @@ export default function Home() {
           {
             PROYECTS.map(proyect =>
 
-              <div key={proyect.id} className={`flex-1 thumbnail flex flex-col gap-2 ${proyect.id === actualProyect && "active"}`}>
-                <div className="w-[100%] h-[200px] relative rounded-xl shadow-xl overflow-hidden">
+              <div
+                key={proyect.id}
+                onClick={() => handleSelect(proyect.id)}
+                className={`thumbnail relative rounded-xl shadow-xl flex flex-col gap-2 ${proyect.id === actualProyect && "active"}`}
+              >
+                <div className="w-[100px] h-[200px] relative rounded-xl overflow-hidden">
                   <Image src={proyect.img} alt={`thumbnail-${proyect.title}`} fill className="object-cover" />
                 </div>
-                <div className="text-center absolute bottom-0 left-0 right-0">
+                <div className="text-center absolute bottom-0 left-0 right-0 text-[var(--black)] font-semibold px-2">
                   {proyect.title}
                 </div>
               </div>

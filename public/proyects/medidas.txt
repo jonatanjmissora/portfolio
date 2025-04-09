@@ -1,0 +1,4 @@
+general: 1920 x 1080
+escritorio: 1366 * 810 a (49.5 en x, 1 en y) margen superior derecho
+movil: del mayor tamaño que da el shots, 2888 x 1620, reducirlo al 50% a (17 en x, 28 en y) mergen inferior izquierdo
+ 
