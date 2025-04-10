@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "./global.theme.css";
 @import "./global.apply.css";
+@import "../(pages)/[home]\style.css";
+@import "../(pages)/[proyects]\style.css";
 
 @property --angle {
   syntax: "<angle>";
@@ -10,6 +12,7 @@
 
 :root {
   color-scheme: light dark;
+  interpolate-size: allow-keywords;
 }
 
 html {
@@ -49,62 +52,6 @@ textarea:focus {
 
 .animate-spin {
   animation: spin 1s linear infinite;
-}
-
-.slider {
-  mask-image: linear-gradient(to right,
-      transparent,
-      #000 10% 90%,
-      transparent);
-}
-
-.item {
-  left: 100%;
-  animation: autorun 30s linear infinite;
-  animation-delay: calc((30s / var(--qnt)) * (var(--position) - 1));
-  transition: filter 0.25s;
-}
-
-.brightness {
-  mask-image: linear-gradient(to right,
-      transparent,
-      #000 10% 90%,
-      transparent);
-}
-
-[data-theme="dark"] .brightness {
-  filter: brightness(0.5);
-}
-
-[data-theme="light"] .brightness {
-  filter: brightness(1.5);
-}
-
-
-[data-theme="dark"] .item {
-  filter: grayscale(1) opacity(0.25);
-}
-
-[data-theme="light"] .item {
-  filter: grayscale(1) opacity(0.5);
-}
-
-/* .slider:hover div .item {
-    animation-play-state: paused;
-} */
-
-.slider div .item:hover {
-  filter: grayscale(0);
-}
-
-@keyframes autorun {
-  from {
-    left: 100%;
-  }
-
-  to {
-    left: -50%
-  }
 }
 
 @media (min-width: 720px) {
@@ -161,109 +108,5 @@ textarea:focus {
     right: 0;
     left: 0;
     opacity: 1;
-  }
-}
-
-.carousel .proyect .proyect-img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0;
-}
-
-.carousel .proyect.old>.proyect-img {
-  z-index: 2;
-  opacity: 1;
-  animation: hideImage .5s linear 1 forwards;
-}
-
-.carousel .proyect.actual>.proyect-img {
-  z-index: 3;
-  bottom: 2.5rem;
-  left: 10rem;
-  width: 120px;
-  height: 170px;
-  opacity: 1;
-  animation: showImage .5s linear 1 forwards;
-}
-
-@keyframes showImage {
-  to {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-}
-
-@keyframes hideImage {
-  to {
-    opacity: 0;
-  }
-}
-
-.carousel .card {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  transform: scale(0.5);
-  opacity: 0.5;
-  transform-origin: center;
-  z-index: -10;
-  opacity: 0;
-  border: 1px solid light-dark(#aaa, #444);
-}
-
-.carousel .card.actual {
-  z-index: 3;
-  animation: showCard 0.5s 0.25s linear forwards;
-}
-
-@keyframes showCard {
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.thumbnail {
-  background: light-dark(#eee, #222);
-  outline: 1px solid light-dark(#aaa, #444);
-}
-
-.thumbnail.active::before,
-.thumbnail.active::after {
-  border-radius: inherit;
-  position: absolute;
-  content: "";
-  right: 0%;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: conic-gradient(from var(--angle), rgb(255, 55, 0), orange);
-  animation: autoRotate 2s linear infinite;
-  padding: 1px;
-  box-sizing: unset;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)
-}
-
-.thumbnail.active::before {
-  filter: blur(5px)
-}
-
-@keyframes autoRotate {
-  from {
-    --angle: 0deg;
-  }
-
-  to {
-    --angle: 360deg
   }
 }

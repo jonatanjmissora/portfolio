@@ -1,14 +1,20 @@
 import React from 'react'
 import LogoSVG from '../_assets/LogoSVG'
 
-export default function KatoDev({className}: {className?: string}) {
+const spanSizes: Record<string, string> = {
+  "text-base": "size-5",
+  "text-lg": "size-6",
+  "text-xl": "size-7",
+  "text-2xl": "size-8",
+  "text-3xl": "size-9"
+}
 
-    const spanClassName = className === "size-6" ? "text-xl" : "text-base"
+export default function KatoDev({ className }: { className: string }) {
 
   return (
-    <div className='flex items-center'>
-        <LogoSVG className={className} />
-        <span className={`pb-1 text-[var(--foreground)] ${spanClassName}`}>atoDev</span>
-    </div>
+    <div className='flex justify-center items-center'>
+      <LogoSVG className={spanSizes[className]} />
+      <span className={`text-[var(--foreground)] ${className}`}>atoDev</span>
+    </div >
   )
 }
