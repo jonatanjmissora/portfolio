@@ -41,9 +41,6 @@
 }
 
 .carousel .card {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
   transform: scale(0.5);
   opacity: 0.5;
   transform-origin: center;
@@ -61,6 +58,26 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.carousel .card.actual .card-content {
+  display: grid;
+  transition: grid-template-rows 1s linear, opacity 1s linear;
+  overflow: hidden;
+  
+}
+
+.carousel .card.actual .card-title[aria-expanded="true"] + div {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.carousel .card.actual .card-title[aria-expanded="false"] + div {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+.carousel .card.actual .card-title[aria-expanded="true"] svg {
+  transform: rotate(180deg);
 }
 
 .thumbnail {

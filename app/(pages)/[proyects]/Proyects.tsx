@@ -7,6 +7,8 @@ import LinkSVG from "@/app/_assets/LinkSVG";
 import RightChevronSvg from "@/app/_assets/RightChevronSVG";
 import LeftChevronSvg from "@/app/_assets/LeftChevronSVG";
 import PlusSvg from "@/app/_assets/PlusSvg";
+import ArrowSVG from "@/app/_assets/ArrowSVG";
+import { TECHNOS } from "@/app/_assets/TechSVG";
 
 const PROYECTS = [
   {
@@ -19,7 +21,7 @@ const PROYECTS = [
   },
   {
     id: 2,
-    title: "RMPhoto",
+    title: "RM Photo",
     img: "/proyects/rodrigo.webp",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
     github: "sd",
@@ -49,12 +51,12 @@ export default function Home() {
   const [oldProyect, setOldProyect] = useState<number>(PROYECTS.length)
 
   return (
-    <article className="carousel w-screen h-screen  relative overflow-hidden">
+    <article id="proyects" className="carousel w-screen h-screen relative overflow-hidden">
 
       {/* IMAGES */}
       <ProyectImage actualProyect={actualProyect} oldProyect={oldProyect} />
 
-      <div className="w-1/3 absolute bottom-10 left-0 m-10 flex flex-col gap-8">
+      <div className="w-full sm:w-1/3 2xl:w-1/3 absolute bottom-5 2xl:bottom-10 left-5 2xl:left-10 m-5 2xl:m-10 flex flex-col gap-8">
 
         {/* CARD> */}
         <ProyectCard actualProyect={actualProyect} />
@@ -85,18 +87,51 @@ const ProyectImage = ({ actualProyect, oldProyect }: { actualProyect: number, ol
 }
 
 const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
+
+  const handleExpand = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const buttonExpanded = e.currentTarget.getAttribute("aria-expanded") === "true" ? "false" : "true"
+    e.currentTarget.setAttribute("aria-expanded", buttonExpanded)
+  }
+
   return (
     <>
       {
         PROYECTS.map(proyect =>
 
-          <div key={proyect.id} className={`card flex-1 p-6 px-8 text-[var(--foreground)] ${actualProyect === proyect.id && "actual"}`}>
+          <div key={proyect.id} className={`card sm:w-[17rem] 2xl:w-[22rem] absolute bottom-full left-0 flex-1 p-6 sm:px-2 2xl:px-8 text-[var(--foreground)] ${actualProyect === proyect.id && "actual"}`}>
+
             <div className="flex flex-col items-start justify-start">
-              <KatoDev className="text-base" />
-              <div className="text-3xl font-bold tracking-widest text-[var(--color-primary)] flex justify-between items-center w-[22rem]">
+
+              <KatoDev className="text-sm" />
+
+              <div 
+                className="card-title text-3xl sm:text-2xl 2xl:text-3xl font-bold tracking-widest text-[var(--color-primary)] flex justify-between items-center w-full cursor-pointer"
+                aria-expanded="false" 
+                onClick={handleExpand}
+                >
                 {proyect.title}
-                <PlusSvg className="size-7" />
+                <ArrowSVG className="size-7 sm:size-6 2xl:size-7 transition-transform duration-300" />
               </div>
+
+              <div className="card-content">
+                <div className="overflow-hidden">
+                  <div className="text-xs py-4 text-[var(--foreground)] ">{proyect.description}</div>
+
+                  <div className="flex flex-col justify-end items-end gap-1">
+                    <div className="size-8">{TECHNOS[0].svg}</div>
+                    <div className="size-8">{TECHNOS[1].svg}</div>
+                    <div className="size-8">{TECHNOS[2].svg}</div>
+                  </div>
+
+                  <div className="flex gap-8 ml-auto">
+                    {proyect.github && <a href={proyect.github}><GithubSVG className='text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6' /></a>}
+                    {proyect.link && <a href={proyect.link}><LinkSVG className='text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6' /></a>}
+                  </div>
+
+                </div>
+              </div>
+
+
             </div>
 
             <div className="hidden">
@@ -133,7 +168,7 @@ const ProyectThumbnail = ({ actualProyect, setActualProyect, setOldProyect }: { 
     <>
       <div className={`flex-1 flex gap-x-4 items-center justify-evenly relative z-3`}>
 
-        <button onClick={() => handleArrow("prev")} className="absolute -left-5 top-[50%] -translate-y-1/2 z-3 cursor-pointer">
+        <button onClick={() => handleArrow("prev")} className="absolute -left-5 sm:-left-8 2xl:-left-5 top-[50%] -translate-y-1/2 z-3 cursor-pointer">
           <LeftChevronSvg className="size-11 text-[var(--color-primary)]/75" />
         </button>
 
@@ -145,7 +180,7 @@ const ProyectThumbnail = ({ actualProyect, setActualProyect, setOldProyect }: { 
               onClick={() => handleSelect(proyect.id)}
               className={`thumbnail relative rounded-xl shadow-xl flex flex-col gap-2 ${proyect.id === actualProyect && "active"}`}
             >
-              <div className="w-[120px] h-[170px] relative rounded-xl">
+              <div className="w-[120px] sm:w-[90px] 2xl:w-[120px] h-[170px] sm:h-[140px] 2xl:h-[170px] relative rounded-xl">
                 <Image src={proyect.img} alt={`thumbnail-${proyect.title}`} fill className="object-cover object-right-top" />
               </div>
 
@@ -153,7 +188,7 @@ const ProyectThumbnail = ({ actualProyect, setActualProyect, setOldProyect }: { 
           )
         }
 
-        <button onClick={() => handleArrow("next")} className="absolute -right-5 top-[50%] -translate-y-1/2 z-3 cursor-pointer">
+        <button onClick={() => handleArrow("next")} className="absolute -right-5 sm:-right-8 2xl:-right-5 top-[50%] -translate-y-1/2 z-3 cursor-pointer">
           <RightChevronSvg className="size-11 text-[var(--color-primary)]/75" />
         </button>
 
