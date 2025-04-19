@@ -6,7 +6,6 @@ import GithubSVG from "@/app/_assets/GithubSVG";
 import LinkSVG from "@/app/_assets/LinkSVG";
 import RightChevronSvg from "@/app/_assets/RightChevronSVG";
 import LeftChevronSvg from "@/app/_assets/LeftChevronSVG";
-import PlusSvg from "@/app/_assets/PlusSvg";
 import ArrowSVG from "@/app/_assets/ArrowSVG";
 import { TECHNOS } from "@/app/_assets/TechSVG";
 
@@ -94,7 +93,7 @@ const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
   }
 
   return (
-    <>
+    <section>
       {
         PROYECTS.map(proyect =>
 
@@ -144,7 +143,7 @@ const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
           </div>
         )
       }
-    </>
+    </section>
   )
 }
 

@@ -4,10 +4,10 @@ import KatoDev from "../../_components/KatoDev"
 
 export default function Hero() {
   return (
-    <article id="about" className="flex-1 flex flex-col justify-center items-center w-[95%] min-h-screen py-12">
+    <article id="about" className="layout m-0 min-h-screen">
 
-      <div className="flex justify-center items-center">
-        <aside className="w-max flex flex-col gap-2 items-center">
+      <div className="flex">
+        <aside className="flex flex-col gap-2 w-[50%] border ml-0">
           <p className="text-5xl font-bold tracking-wider">Jonatan Missora</p>
           <div className="w-full flex justify-center gap-6 items-center">
             <KatoDev className="text-2xl" />
@@ -15,12 +15,11 @@ export default function Hero() {
           </div>
           <p className="text-2xl tracking-wider">Frontend Developer</p>
           <div className="text-xl mt-4">
-            <p>Think. Design. Code. Deploy</p>
-            <p>Lets work toguether!</p>
+            <p className="">From great ideas to full stack solutions.</p>
+            <p className="text-sm">Lets work together!</p>
           </div>
-          <div className="w-full text-xl flex justify-around mt-12">
+          <div className="w-full text-xl mt-12">
             <button className="btn btn-primary px-12">Contact Me</button>
-            <button className="btn btn-primary px-6">CV</button>
           </div>
         </aside>
 
