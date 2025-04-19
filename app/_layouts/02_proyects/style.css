@@ -1,4 +1,4 @@
-.carousel .proyect .proyect-img {
+.proyect .proyect-img {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -8,16 +8,16 @@
   opacity: 0;
 }
 
-.carousel .proyect.old>.proyect-img {
+.proyect.old>.proyect-img {
   z-index: 2;
   opacity: 1;
   animation: hideImage .5s linear 1 forwards;
 }
 
-.carousel .proyect.actual>.proyect-img {
+.proyect.actual>.proyect-img {
   z-index: 3;
-  bottom: 2.5rem;
-  left: 10rem;
+  bottom: 0;
+  left: 0;
   width: 120px;
   height: 170px;
   opacity: 1;
@@ -40,7 +40,7 @@
   }
 }
 
-.carousel .card {
+.card {
   transform: scale(0.5);
   opacity: 0.5;
   transform-origin: center;
@@ -48,7 +48,7 @@
   opacity: 0;
 }
 
-.carousel .card.actual {
+.card.actual {
   z-index: 3;
   animation: showCard 0.5s 0.25s linear forwards;
 }
@@ -60,23 +60,23 @@
   }
 }
 
-.carousel .card.actual .card-content {
+.card.actual .card-content {
   display: grid;
   transition: grid-template-rows 1s linear, opacity 1s linear;
   overflow: hidden;
-  
 }
 
-.carousel .card.actual .card-title[aria-expanded="true"] + div {
+.card.actual .card-title[aria-expanded="true"]+div {
   grid-template-rows: 1fr;
   opacity: 1;
 }
-.carousel .card.actual .card-title[aria-expanded="false"] + div {
+
+.card.actual .card-title[aria-expanded="false"]+div {
   grid-template-rows: 0fr;
   opacity: 0;
 }
 
-.carousel .card.actual .card-title[aria-expanded="true"] svg {
+.card.actual .card-title[aria-expanded="true"] svg {
   transform: rotate(180deg);
 }
 
@@ -117,5 +117,3 @@
     --angle: 360deg
   }
 }
-
-.thumbnail img {}

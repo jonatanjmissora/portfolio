@@ -7,12 +7,11 @@ const spanSizes: Record<string, string> = {
   "text-lg": "size-6",
   "text-xl": "size-7",
   "text-2xl": "size-8",
-  "text-3xl": "size-9"
+  "text-3xl": "size-9",
+  "text-8xl": "size-32"
 }
 
 export default function KatoDev({ className }: { className: string }) {
-
-  console.log(className, spanSizes[className])
 
   return (
     <div className='flex justify-center items-center'>

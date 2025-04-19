@@ -33,11 +33,10 @@ export default function MobilMenu() {
   )
 }
 
-const DesktopMenu = ({setShowMenu, pathname }: { setShowMenu: (value: boolean) => void, pathname: string }) => {
+const DesktopMenu = ({ setShowMenu, pathname }: { setShowMenu: (value: boolean) => void, pathname: string }) => {
 
   const pathnameArray = pathname.split("/")
   const currentPath = pathnameArray[pathnameArray.length - 1]
-  console.log(pathnameArray)
 
   return (
     <div className="modal-menu-container fixed inset-0 z-10 bg-[var(--color-primary)] rounded-l-none sm:rounded-l-xl shadow-lg">
@@ -58,7 +57,7 @@ const DesktopMenu = ({setShowMenu, pathname }: { setShowMenu: (value: boolean) =
       </nav>
 
       <div className="flex flex-col gap-8 sm:gap-6 2xl:gap-8 text-center items-end p-10 sm:p-8 2xl:p-10">
-        <ThemeSwitcher setShowMenu={setShowMenu}/>
+        <ThemeSwitcher setShowMenu={setShowMenu} />
       </div>
     </div>
   )

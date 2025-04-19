@@ -64,36 +64,38 @@ export default function Experience() {
     ]
 
     return (
-        <article className="layout">
-            <div className="flex gap-6 items-center border w-full">
-                <h2 className="text-3xl font-bold tracking-wider py-6">Experience</h2>
-                <button className="btn btn-primary px-4">CV</button>
-            </div>
-            <div className="flex gap-4 w-full">
-                <aside className="w-1/6">
-                    <h3 className="text-xl font-bold tracking-wider">Timeline</h3>
-                </aside>
-                <div className="w-5/6 flex flex-col gap-8 ">
-                {
-                    EXPERTICE.map((experience) => (
-                        <div key={experience.date} className="flex flex-col gap-2 border rounded-lg p-4">
-                        <h3 className="text-xl font-bold tracking-wider">{experience.title}</h3>
-                        <div className="flex items-center gap-2 px-1">
-                            <CalendarSVG className="size-4 text-gray-500" />
-                            <h4 className="text-xs font-bold tracking-wider text-gray-500">{experience.date}</h4>
-                        </div>
-                        <ul className="flex flex-col gap-2 pt-2">
-                            {
-                                experience.description.map((description) => (
-                                    <li key={description} className="text-sm font-thin tracking-wider list-disc list-inside px-4">{description}</li>
-                                ))
-                            }
-                        </ul>
-                        </div>
-                    ))
-                }
+        <div className="w-full gradient">
+            <article id="expertice" className="layout px - [var(--layout - padding - y)]">
+                < div className="flex gap-12 items-center border-b w-full" >
+                    <h2 className="title1">Experience</h2>
+                    <button className="btn btn-primary px-4">CV</button>
+                </div >
+                <div className="flex gap-4 w-full pt-4">
+                    <aside className="w-1/6">
+                        <h3 className="text-xl font-bold tracking-wider">Timeline</h3>
+                    </aside>
+                    <div className="w-5/6 flex flex-col gap-4 ">
+                        {
+                            EXPERTICE.map((experience) => (
+                                <div key={experience.date} className="flex flex-col gap-2 border rounded-lg p-4">
+                                    <h3 className="title3">{experience.title}</h3>
+                                    <div className="flex items-center gap-2 px-1">
+                                        <CalendarSVG className="size-4 text-gray-500" />
+                                        <h4 className="text-xs font-bold tracking-wider text-gray-500">{experience.date}</h4>
+                                    </div>
+                                    <ul className="flex flex-col gap-2 pt-2">
+                                        {
+                                            experience.description.map((description) => (
+                                                <li key={description} className="text list-disc list-inside px-4">{description}</li>
+                                            ))
+                                        }
+                                    </ul>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
-            </div>
-        </article>
+            </article >
+        </div >
     )
 }

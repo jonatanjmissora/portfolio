@@ -50,21 +50,25 @@ export default function Home() {
   const [oldProyect, setOldProyect] = useState<number>(PROYECTS.length)
 
   return (
-    <article id="proyects" className="carousel w-screen h-screen relative overflow-hidden">
+    <div className="w-full bg-[var(--layout-bg)]">
+      <article id="proyects" className="layout justify-start items-start px-[var(--layout-padding-y)] min-h-screen relative">
 
-      {/* IMAGES */}
-      <ProyectImage actualProyect={actualProyect} oldProyect={oldProyect} />
+        <h2 className="title1 w-full border-b">Proyects</h2>
 
-      <div className="w-full sm:w-1/3 2xl:w-1/3 absolute bottom-5 2xl:bottom-10 left-5 2xl:left-10 m-5 2xl:m-10 flex flex-col gap-8">
+        {/* IMAGES */}
+        <ProyectImage actualProyect={actualProyect} oldProyect={oldProyect} />
 
-        {/* CARD> */}
-        <ProyectCard actualProyect={actualProyect} />
+        <div className="w-full sm:w-1/3 2xl:w-1/2 absolute bottom-0 left-0 flex flex-col gap-8">
 
-        {/* THUMBNAIL */}
-        <ProyectThumbnail actualProyect={actualProyect} setActualProyect={setActualProyect} setOldProyect={setOldProyect} />
-      </div>
+          {/* CARD> */}
+          <ProyectCard actualProyect={actualProyect} />
 
-    </article>
+          {/* THUMBNAIL */}
+          <ProyectThumbnail actualProyect={actualProyect} setActualProyect={setActualProyect} setOldProyect={setOldProyect} />
+        </div>
+
+      </article>
+    </div>
   );
 }
 
@@ -74,7 +78,7 @@ const ProyectImage = ({ actualProyect, oldProyect }: { actualProyect: number, ol
       {
         PROYECTS.map(proyect =>
 
-          <div key={proyect.id} className={`proyect w-screen h-screen absolute inset-0 ${proyect.id === actualProyect && "actual"} ${proyect.id === oldProyect && "old"}`}>
+          <div key={proyect.id} className={`proyect w-full h-screen absolute inset-0 ${proyect.id === actualProyect && "actual"} ${proyect.id === oldProyect && "old"}`}>
             <div className="proyect-img">
               <Image src={proyect.img} alt={proyect.title} fill className="object-contain" />
             </div>
@@ -103,11 +107,11 @@ const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
 
               <KatoDev className="text-sm" />
 
-              <div 
+              <div
                 className="card-title text-3xl sm:text-2xl 2xl:text-3xl font-bold tracking-widest text-[var(--color-primary)] flex justify-between items-center w-full cursor-pointer"
-                aria-expanded="false" 
+                aria-expanded="false"
                 onClick={handleExpand}
-                >
+              >
                 {proyect.title}
                 <ArrowSVG className="size-7 sm:size-6 2xl:size-7 transition-transform duration-300" />
               </div>
@@ -177,9 +181,9 @@ const ProyectThumbnail = ({ actualProyect, setActualProyect, setOldProyect }: { 
             <div
               key={proyect.id}
               onClick={() => handleSelect(proyect.id)}
-              className={`thumbnail relative rounded-xl shadow-xl flex flex-col gap-2 ${proyect.id === actualProyect && "active"}`}
+              className={`thumbnail h-full relative rounded-xl shadow-xl flex flex-col gap-2 ${proyect.id === actualProyect && "active"}`}
             >
-              <div className="w-[120px] sm:w-[90px] 2xl:w-[120px] h-[170px] sm:h-[140px] 2xl:h-[170px] relative rounded-xl">
+              <div className="w-[120px] sm:w-[90px] 2xl:w-[120px] h-[170px] sm:h-[160px] 2xl:h-[190px] relative rounded-xl">
                 <Image src={proyect.img} alt={`thumbnail-${proyect.title}`} fill className="object-cover object-right-top" />
               </div>
 

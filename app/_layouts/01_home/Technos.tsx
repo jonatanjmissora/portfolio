@@ -6,7 +6,7 @@ export default function Technos() {
 
     return (
         <article
-            className="slider h-[50px] w-3/4 overflow-hidden relative mt-12"
+            className="slider h-[50px] w-3/4 overflow-hidden relative mt-12 mx-auto"
             style={{ "--width": "100px", "--height": "50px", "--qnt": `${qnt}` } as React.CSSProperties}
         >
             <div>

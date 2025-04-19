@@ -1,4 +1,3 @@
-import Footer from "../_components/Footer"
 import "../_styles/global.css"
 import Header from "../_components/Header/Header"
 import { ThemeProvider } from "next-themes"
@@ -23,7 +22,6 @@ export default function RootLayout({
             {children}
 
           </main>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

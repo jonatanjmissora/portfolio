@@ -5,6 +5,7 @@ import Experience from "../_layouts/04_experience/Experience";
 import Hero from "../_layouts/01_home/Hero";
 import Process from "../_layouts/03_process/Process";
 import Proyects from "../_layouts/02_proyects/Proyects";
+import Footer from "../_layouts/08_Footer/Footer";
 
 export default async function page() {
 
@@ -17,6 +18,7 @@ export default async function page() {
       <AboutMe />
       <Design />
       <Contact />
+      <Footer />
     </section>
   )
 }

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import "./global.theme.css";
 @import "./global.apply.css";
-@import "../_layouts/home/style.css";
-@import "../_layouts/proyects/style.css";
+@import "../_layouts/01_home/style.css";
+@import "../_layouts/02_proyects/style.css";
 
 @property --angle {
   syntax: "<angle>";
@@ -22,13 +22,17 @@ html {
 }
 
 body {
-  background-image: var(--bg-body);
+  /* background-image: var(--bg-body); */
   height: 100dvh;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   color: var(--foreground);
   overflow-x: hidden;
   position: relative;
   z-index: 1;
+}
+
+.gradient {
+  background-image: var(--bg-body);
 }
 
 dialog::backdrop {
