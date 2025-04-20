@@ -1,13 +1,13 @@
 "use client"
 
-import Link from 'next/link'
+import { useLenis } from 'lenis/react'
 import { usePathname } from 'next/navigation'
 
 export default function HeaderLink({ href, text }: { href: string, text: string }) {
 
-  const pathname = usePathname()
+  const lenis = useLenis()
 
   return (
-    <Link href={href} className={`btn text-xl sm:text-xs 2xl:text-xl text-[var(--foreground)] ${pathname === href ? "btn-ghost-active" : "hover:text-[var(--color-primary-hover)]"}`}>{text}</Link>
+    <button onClick={() => lenis?.scrollTo(href, {lerp: 0.001, duration: 0.5})} className={`btn text-xl sm:text-xs 2xl:text-xl text-[var(--foreground)] hover:text-[var(--color-primary-hover)]"}`}>{text}</button>
   )
 }

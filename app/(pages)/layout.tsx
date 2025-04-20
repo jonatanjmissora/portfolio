@@ -1,6 +1,7 @@
 import "../_styles/global.css"
 import Header from "../_components/Header/Header"
 import { ThemeProvider } from "next-themes"
+import LenisProvider from "../_components/LenisProvider"
 
 export const metadata = {
   title: 'JM Portfolio',
@@ -16,12 +17,13 @@ export default function RootLayout({
     <html lang="es" suppressHydrationWarning>
       <body className="min-h-dvh w-full flex flex-col">
         <ThemeProvider>
-          <Header />
-          <main className="flex-1 flex flex-col">
+          <LenisProvider>
+
 
             {children}
 
-          </main>
+          
+          </LenisProvider>
         </ThemeProvider>
       </body>
     </html>
