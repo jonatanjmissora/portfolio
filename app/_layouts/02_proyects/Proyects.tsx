@@ -8,6 +8,7 @@ import RightChevronSvg from "@/app/_assets/RightChevronSVG";
 import LeftChevronSvg from "@/app/_assets/LeftChevronSVG";
 import ArrowSVG from "@/app/_assets/ArrowSVG";
 import { TECHNOS } from "@/app/_assets/TechSVG";
+import "./styles.css"
 
 const PROYECTS = [
   {

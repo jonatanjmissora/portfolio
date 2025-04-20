@@ -1,0 +1,9 @@
+.expertice-card {
+    transition: scale .3s ease-in-out;
+}
+
+.expertice-card.card-zoom {
+    scale: 1.05;
+    transition: scale .3s ease-in-out;
+   
+}

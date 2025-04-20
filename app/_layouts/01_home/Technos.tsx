@@ -1,4 +1,5 @@
 import { TECHNOS } from "@/app/_assets/TechSVG";
+import "./styles.css"
 
 export default function Technos() {
 

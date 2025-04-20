@@ -4,7 +4,7 @@ import MailSVG from "@/app/_assets/MailSVG"
 export default function Contact() {
     return (
         <div className="w-full gradient">
-            <article id="home" className="layout px-[var(--layout-padding-y)]">
+            <article id="contact" className="layout px-[var(--layout-padding-y)]">
                 <h2 className="title1 border-b w-full">Contact</h2>
                 <div className="flex w-full gap-48 py-12">
 

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Technos from "./Technos"
 import KatoDev from "../../_components/KatoDev"
+import "./styles.css"
 
 export default function Hero() {
   return (

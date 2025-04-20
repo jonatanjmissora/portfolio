@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "./global.theme.css";
 @import "./global.apply.css";
-@import "../_layouts/01_home/style.css";
-@import "../_layouts/02_proyects/style.css";
 
 @property --angle {
   syntax: "<angle>";
