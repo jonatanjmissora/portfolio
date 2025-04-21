@@ -19,7 +19,7 @@ export default function Footer() {
             <h3 className='title2 border-b w-full'>Roadmap</h3>
             <nav className='flex flex-col gap-2 title3 pl-4 py-6 pb-12'>
               {
-                NAVLINKS.map(link => <button key={link.text} onClick={() => lenis?.scrollTo(link.href, {lerp: 0.001, duration: 0.5})} className='hover:text-[var(--color-primary-hover)]'>{link.text}</button>)
+                NAVLINKS.map(link => <button key={link.text} onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })} className='text-left hover:text-[var(--color-primary-hover)]'>{link.text}</button>)
               }
             </nav>
           </div>

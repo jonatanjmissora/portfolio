@@ -34,7 +34,7 @@ export default function Header() {
   }
 
   return (
-    <header className={`header w-3/4 px-[var(--layout-padding-y)] flex justify-between items-center py-4 mx-auto text-[var(--white)] fixed top-0  z-10 ${scrolled ? show ? "left-1/2 -translate-x-1/2 bg-[var(--inv-foreground)]/80 backdrop-blur-sm" : "left-1/2 translate-x-1/2" : "left-1/2 -translate-x-1/2"} duration-500`}>
+    <header className={`header w-3/4 px-[var(--layout-padding-y)] flex justify-between items-center py-4 mx-auto text-[var(--white)] fixed top-0  z-100 ${scrolled ? show ? "left-1/2 -translate-x-1/2 bg-[var(--inv-foreground)]/80 backdrop-blur-sm" : "left-1/2 translate-x-1/2" : "left-1/2 -translate-x-1/2"} duration-500`}>
 
       <button onClick={handleShow}>
         <LogoSVG className='size-7 text-[var(--color-primary)]' />

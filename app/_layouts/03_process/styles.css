@@ -1,0 +1,49 @@
+@import "../../_styles/global.theme.css";
+
+.process-container {
+  position: relative;
+  z-index: 10;
+  border: 1px solid cyan
+}
+
+.card-glow {
+  margin: 2rem;
+  border-radius: 1rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: var(--border);
+  transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.card-glow::before {
+  position: absolute;
+  z-index: -2;
+  content: "";
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-image: radial-gradient(var(--color-primary), transparent, transparent);
+  opacity: 0;
+  transition: 0.5s, top 0s, left 0s;
+}
+
+.card-glow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow);
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+.card-glow::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  background-color: light-dark(#ffffffcc, #000000dd);
+  border-radius: 0.9rem;
+}

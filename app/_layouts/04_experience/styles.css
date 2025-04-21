@@ -1,9 +1,46 @@
+@import "../../_styles/global.theme.css";
+
 .expertice-card {
     transition: scale .3s ease-in-out;
+    box-shadow: var(--border);
+    border-radius: 1rem;
+    background: var(--layout-bg);
 }
 
 .expertice-card.card-zoom {
     scale: 1.05;
     transition: scale .3s ease-in-out;
-   
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.expertice-card.card-zoom::before {
+    position: absolute;
+    z-index: -2;
+    content: "";
+    background-image: linear-gradient(to bottom, transparent, var(--color-primary) 20% 80%, transparent);
+    top: 10%;
+    bottom: 10%;
+    left: -20%;
+    right: -20%;
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(3deg);
+    animation: zoom 1s ease forwards;
+}
+
+.expertice-card.card-zoom::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 3px;
+    background-color: light-dark(#ffffff, #000000);
+    border-radius: 0.9rem;
+}
+
+@keyframes zoom {
+    to {
+        transform: rotate(-183deg);
+    }
 }
