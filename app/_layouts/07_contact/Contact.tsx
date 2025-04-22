@@ -5,7 +5,7 @@ export default function Contact() {
     return (
         <div className="w-full gradient">
             <article id="contact" className="layout px-[var(--layout-padding-y)]">
-                <h2 className="title1 border-b w-full">Contact</h2>
+                <h2 className="title1 border-b-2 border-[var(--foreground)] text-[var(--color-primary)] w-full">Contact</h2>
                 <div className="flex w-full gap-48 py-12">
 
                     <div className="w-7/12 flex flex-col title-1 text-9xl font-bold">

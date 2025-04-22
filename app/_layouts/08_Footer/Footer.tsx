@@ -13,13 +13,13 @@ export default function Footer() {
 
   return (
     <div className="w-full bg-[var(--layout-bg)]">
-      <article className='layout py-4 px-[var(--layout-padding-y)] pb-0'>
+      <article className='layout py-4 px-[var(--layout-padding-y)]'>
         <div className='flex w-full'>
           <div className='w-1/2 flex flex-col'>
-            <h3 className='title2 border-b w-full'>Roadmap</h3>
+            <h3 className='title1 border-b-2 border-[var(--foreground)] w-full text-[var(--color-primary)]'>Roadmap</h3>
             <nav className='flex flex-col gap-2 title3 pl-4 py-6 pb-12'>
               {
-                NAVLINKS.map(link => <button key={link.text} onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })} className='text-left hover:text-[var(--color-primary-hover)]'>{link.text}</button>)
+                NAVLINKS.map(link => <button key={link.text} onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })} className='text-xl text-left hover:text-[var(--color-primary-hover)]'>{link.text}</button>)
               }
             </nav>
           </div>

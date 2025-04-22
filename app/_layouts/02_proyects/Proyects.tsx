@@ -9,41 +9,7 @@ import LeftChevronSvg from "@/app/_assets/LeftChevronSVG";
 import ArrowSVG from "@/app/_assets/ArrowSVG";
 import { TECHNOS } from "@/app/_assets/TechSVG";
 import "./styles.css"
-
-const PROYECTS = [
-  {
-    id: 1,
-    title: "Ragazzi Board",
-    img: "/proyects/ragazzi.webp",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
-    github: "sd",
-    link: "sd"
-  },
-  {
-    id: 2,
-    title: "RM Photo",
-    img: "/proyects/rodrigo.webp",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
-    github: "sd",
-    link: "sd"
-  },
-  {
-    id: 3,
-    title: "Punto Alem",
-    img: "/proyects/alem.webp",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
-    github: "sd",
-    link: "sd"
-  },
-  {
-    id: 4,
-    title: "DHM Wallet",
-    img: "/proyects/dhm.webp",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?",
-    github: "sd",
-    link: "sd"
-  },
-]
+import { PROYECTS } from "@/app/_lib/constants/proyects";
 
 export default function Home() {
 
@@ -52,9 +18,9 @@ export default function Home() {
 
   return (
     <div className="w-full bg-[var(--layout-bg)]">
-      <article id="proyects" className="layout justify-start items-start px-[var(--layout-padding-y)] min-h-screen relative">
+      <article id="proyects" className="layout justify-start items-start px-[var(--layout-padding-y)] min-h-[110dvh] relative">
 
-        <h2 className="title1 w-full border-b">Proyects</h2>
+        <h2 className="title1 w-full border-b-2 border-[var(--foreground)] text-[var(--color-primary)]">Proyects</h2>
 
         {/* IMAGES */}
         <ProyectImage actualProyect={actualProyect} oldProyect={oldProyect} />
@@ -79,7 +45,7 @@ const ProyectImage = ({ actualProyect, oldProyect }: { actualProyect: number, ol
       {
         PROYECTS.map(proyect =>
 
-          <div key={proyect.id} className={`proyect w-full h-screen absolute inset-0 ${proyect.id === actualProyect && "actual"} ${proyect.id === oldProyect && "old"}`}>
+          <div key={proyect.id} className={`proyect absolute bottom-0 left-0 w-full h-[95%] ${proyect.id === actualProyect && "actual"} ${proyect.id === oldProyect && "old"}`}>
             <div className="proyect-img">
               <Image src={proyect.img} alt={proyect.title} fill className="object-contain" />
             </div>

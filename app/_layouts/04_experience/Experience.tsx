@@ -10,8 +10,8 @@ export default function Experience() {
     return (
         <div className="w-full gradient">
             <article id="expertice" className="layout px - [var(--layout - padding - y)]">
-                < div className="flex gap-12 items-center border-b w-full" >
-                    <h2 className="title1">Experience</h2>
+                < div className="flex gap-12 items-center border-b-2 border-[var(--foreground)]  w-full" >
+                    <h2 className="title1 text-[var(--color-primary)]">Experience</h2>
                     <button className="btn btn-primary px-4">CV</button>
                 </div >
                 <div className="flex gap-4 w-full pt-4">

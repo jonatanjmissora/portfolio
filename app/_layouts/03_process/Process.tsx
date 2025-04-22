@@ -7,10 +7,7 @@ export default function Process() {
 
     const lang = "en"
 
-
-
     const handleMouseEvent = (e: React.MouseEvent<HTMLDivElement>) => {
-
 
         const x = e.pageX - e.currentTarget.offsetLeft
         const y = e.pageY - e.currentTarget.offsetTop
@@ -26,13 +23,15 @@ export default function Process() {
                 {
                     PROCESS[lang].map((process) => (
 
-
                         <div
                             key={process.title}
-                            className="card-glow flex-1 flex flex-col gap-4 p-4 px-[var(--layout-padding-y)] rounded-lg h-full"
+                            className="card-glow flex-1 flex flex-col gap-4 p-4 px-[var(--layout-padding-y)] rounded-lg h-full group"
                             onMouseMoveCapture={handleMouseEvent}
                         >
-                            <h2 className="title1">{process.title}</h2>
+                            <div className="flex justify-between items-center">
+                                <h2 className="title1">{process.title}</h2>
+                                {process.svg}
+                            </div>
 
                             <div className="flex flex-col gap-3">
 

@@ -1,33 +1,44 @@
+"use client"
+
+import { DESIGN } from "@/app/_lib/constants/design";
+
 export default function Design() {
-    const DESIGN = [
-        {
-            title: "Quality",
-            description: "Delivery hight quality result while mantaining atention to every detail."
-        },
-        {
-            title: "Communication",
-            description: "Keepeng you updated at every step to ensure clarity and transparency."
-        },
-        {
-            title: "Delivery",
-            description: "Making sure every feature is completed on schedule."
-        },
 
-    ]
+    const lang = "en"
 
+    const handleMouseEvent = (e: React.MouseEvent<HTMLDivElement>) => {
+
+        const x = e.pageX - e.currentTarget.offsetLeft
+        const y = e.pageY - e.currentTarget.offsetTop
+
+        e.currentTarget.style.setProperty("--x", x + "px")
+        e.currentTarget.style.setProperty("--y", y + "px")
+    }
 
     return (
         <div className="w-full bg-[var(--layout-bg)]">
-            <article className="layout flex-row justify-between gap-8">
+            <article className="layout pt-0 flex-row justify-between h-full gap-20">
                 {
-                    DESIGN.map((design) => (
-                        <div key={design.title} className="flex flex-col gap-4 p-4 px-6 border rounded-lg">
-                            <h2 className="title1">{design.title}</h2>
-                            <p className="text-lg">{design.description}</p>
+                    DESIGN[lang].map((design) => (
+
+                        <div
+                            key={design.title}
+                            className="card-glow flex-1 flex flex-col gap-4 p-4 px-[var(--layout-padding-y)] rounded-lg h-full group"
+                            onMouseMoveCapture={handleMouseEvent}
+                        >
+                            <div className="flex justify-between items-center">
+                                <h2 className="title1">{design.title}</h2>
+                                {design.svg}
+                            </div>
+
+                            <div className="flex flex-col gap-3">
+                                <p className="text-lg">{design.description}</p>
+                            </div>
                         </div>
+
                     ))
                 }
-            </article >
-        </div >
+            </article>
+        </div>
     )
 }
