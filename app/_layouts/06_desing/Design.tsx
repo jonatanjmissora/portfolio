@@ -27,7 +27,7 @@ export default function Design() {
                             onMouseMoveCapture={handleMouseEvent}
                         >
                             <div className="flex justify-between items-center">
-                                <h2 className="title1">{design.title}</h2>
+                                <h2 className="sm:title2 2xl:title1">{design.title}</h2>
                                 {design.svg}
                             </div>
 

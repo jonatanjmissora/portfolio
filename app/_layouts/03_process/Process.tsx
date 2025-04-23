@@ -19,7 +19,7 @@ export default function Process() {
 
     return (
         <div className="w-full bg-[var(--layout-bg)]">
-            <article className="layout flex-row justify-between h-full gap-20">
+            <article className="layout flex-row justify-between h-full sm:gap-102xl:gap-20">
                 {
                     PROCESS[lang].map((process) => (
 
@@ -29,7 +29,7 @@ export default function Process() {
                             onMouseMoveCapture={handleMouseEvent}
                         >
                             <div className="flex justify-between items-center">
-                                <h2 className="title1">{process.title}</h2>
+                                <h2 className="sm:title2 2xl:title1">{process.title}</h2>
                                 {process.svg}
                             </div>
 

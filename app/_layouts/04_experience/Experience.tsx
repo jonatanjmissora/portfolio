@@ -12,7 +12,7 @@ export default function Experience() {
             <article id="expertice" className="layout px - [var(--layout - padding - y)]">
                 <div className="flex flex-col gap-2 w-full mb-16">
                     <div className="flex items-center gap-12">
-                        <h2 className="title1 w-max">Experience</h2>
+                        <h2 className="sm:title2 2xl:title1 w-max">Experience</h2>
                         <button className="btn btn-primary px-4">CV</button>
                     </div>
                     <div className="title-under bg-[var(--foreground)]"></div>
