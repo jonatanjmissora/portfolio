@@ -1,16 +1,21 @@
 import LinkedinSVG from "@/app/_assets/LinkedinSVG"
 import MailSVG from "@/app/_assets/MailSVG"
+import "./styles.css"
+import ArticleTitle from "@/app/_components/ArticleTitle"
 
 export default function Contact() {
     return (
         <div className="w-full gradient">
             <article id="contact" className="layout px-[var(--layout-padding-y)]">
-                <h2 className="title1 border-b-2 border-[var(--foreground)] text-[var(--color-primary)] w-full">Contact</h2>
+                <ArticleTitle text="Contact" className="mb-12" />
                 <div className="flex w-full gap-48 py-12">
 
-                    <div className="w-7/12 flex flex-col title-1 text-9xl font-bold">
-                        <p className="w-full text-left">Have an</p>
+                    <div className="contact-banner w-5/12 flex flex-col title-1 text-9xl font-bold">
+
+                        <p className="w-full text-left vertical">Have</p>
+                        <p className="w-full pl-48 pb-3">an</p>
                         <p className="w-full text-right"> idea ?</p>
+
                     </div>
 
                     <div className="w-5/12 flex flex-col justify-center">

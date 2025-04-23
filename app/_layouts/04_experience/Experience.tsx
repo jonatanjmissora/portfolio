@@ -10,13 +10,20 @@ export default function Experience() {
     return (
         <div className="w-full gradient">
             <article id="expertice" className="layout px - [var(--layout - padding - y)]">
-                < div className="flex gap-12 items-center border-b-2 border-[var(--foreground)]  w-full" >
-                    <h2 className="title1 text-[var(--color-primary)]">Experience</h2>
-                    <button className="btn btn-primary px-4">CV</button>
-                </div >
+                <div className="flex flex-col gap-2 w-full mb-16">
+                    <div className="flex items-center gap-12">
+                        <h2 className="title1 w-max">Experience</h2>
+                        <button className="btn btn-primary px-4">CV</button>
+                    </div>
+                    <div className="title-under bg-[var(--foreground)]"></div>
+                </div>
                 <div className="flex gap-4 w-full pt-4">
                     <aside className="w-1/6">
-                        <h3 className="text-xl font-bold tracking-wider">Timeline</h3>
+                        <div className="w-1/3 h-full mx-auto ">
+                            <svg width={24} fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="text-[var(--color-primary)] mx-auto h-1/2">
+                                <line className="timeline" x1="12" y1="0" x2="12" y2="200" />
+                            </svg>
+                        </div>
                     </aside>
 
                     <ExperticeCards />

@@ -10,6 +10,7 @@ import ArrowSVG from "@/app/_assets/ArrowSVG";
 import { TECHNOS } from "@/app/_assets/TechSVG";
 import "./styles.css"
 import { PROYECTS } from "@/app/_lib/constants/proyects";
+import ArticleTitle from "@/app/_components/ArticleTitle";
 
 export default function Home() {
 
@@ -18,20 +19,23 @@ export default function Home() {
 
   return (
     <div className="w-full bg-[var(--layout-bg)]">
-      <article id="proyects" className="layout justify-start items-start px-[var(--layout-padding-y)] min-h-[110dvh] relative">
+      <article id="proyects" className="layout justify-start items-start px-[var(--layout-padding-y)] min-h-[110dvh]">
 
-        <h2 className="title1 w-full border-b-2 border-[var(--foreground)] text-[var(--color-primary)]">Proyects</h2>
+        <ArticleTitle text="Proyects" />
 
-        {/* IMAGES */}
-        <ProyectImage actualProyect={actualProyect} oldProyect={oldProyect} />
+        <div className="flex-1 w-full h-[95%] relative">
 
-        <div className="w-full sm:w-1/3 2xl:w-1/2 absolute bottom-0 left-0 flex flex-col gap-8">
+          {/* IMAGES */}
+          <ProyectImage actualProyect={actualProyect} oldProyect={oldProyect} />
 
-          {/* CARD> */}
-          <ProyectCard actualProyect={actualProyect} />
+          <div className="w-full sm:w-1/3 2xl:w-1/2 absolute bottom-0 left-0 flex flex-col gap-8">
 
-          {/* THUMBNAIL */}
-          <ProyectThumbnail actualProyect={actualProyect} setActualProyect={setActualProyect} setOldProyect={setOldProyect} />
+            {/* CARD> */}
+            <ProyectCard actualProyect={actualProyect} />
+
+            {/* THUMBNAIL */}
+            <ProyectThumbnail actualProyect={actualProyect} setActualProyect={setActualProyect} setOldProyect={setOldProyect} />
+          </div>
         </div>
 
       </article>
@@ -45,7 +49,7 @@ const ProyectImage = ({ actualProyect, oldProyect }: { actualProyect: number, ol
       {
         PROYECTS.map(proyect =>
 
-          <div key={proyect.id} className={`proyect absolute bottom-0 left-0 w-full h-[95%] ${proyect.id === actualProyect && "actual"} ${proyect.id === oldProyect && "old"}`}>
+          <div key={proyect.id} className={`proyect absolute bottom-0 left-0 w-full h-full ${proyect.id === actualProyect && "actual"} ${proyect.id === oldProyect && "old"}`}>
             <div className="proyect-img">
               <Image src={proyect.img} alt={proyect.title} fill className="object-contain" />
             </div>

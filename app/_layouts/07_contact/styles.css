@@ -1,0 +1,4 @@
+.contact-banner {
+  --shadow: #66666650;
+  text-shadow: var(--shadow) 1px 1px, var(--shadow) 2px 2px, var(--shadow) 3px 3px, var(--shadow) 4px 4px, var(--shadow) 5px 5px, var(--shadow) 6px 6px;
+}

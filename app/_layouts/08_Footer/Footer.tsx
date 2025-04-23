@@ -2,6 +2,7 @@
 
 import GithubSVG from '@/app/_assets/GithubSVG'
 import LinkedinSVG from '@/app/_assets/LinkedinSVG'
+import ArticleTitle from '@/app/_components/ArticleTitle'
 import KatoDev from '@/app/_components/KatoDev'
 import { NAVLINKS } from '@/app/_lib/constants/navlinks'
 import { useLenis } from 'lenis/react'
@@ -16,7 +17,7 @@ export default function Footer() {
       <article className='layout py-4 px-[var(--layout-padding-y)]'>
         <div className='flex w-full'>
           <div className='w-1/2 flex flex-col'>
-            <h3 className='title1 border-b-2 border-[var(--foreground)] w-full text-[var(--color-primary)]'>Roadmap</h3>
+            <ArticleTitle text="Roadmap" />
             <nav className='flex flex-col gap-2 title3 pl-4 py-6 pb-12'>
               {
                 NAVLINKS.map(link => <button key={link.text} onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })} className='text-xl text-left hover:text-[var(--color-primary-hover)]'>{link.text}</button>)

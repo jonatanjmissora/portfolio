@@ -17,7 +17,7 @@
   }
 
   .title1 {
-    @apply text-3xl font-bold tracking-wider py-2 my-2
+    @apply text-3xl font-bold tracking-wider py-1 my-1 text-[var(--color-primary)] w-full
   }
 
   .title2 {

@@ -1,11 +1,5 @@
 @import "../../_styles/global.theme.css";
 
-.process-container {
-  position: relative;
-  z-index: 10;
-  border: 1px solid cyan
-}
-
 .card-glow {
   margin: 2rem;
   border-radius: 1rem;

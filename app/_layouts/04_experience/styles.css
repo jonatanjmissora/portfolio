@@ -44,3 +44,19 @@
         transform: rotate(-183deg);
     }
 }
+
+.timeline.ani {
+    stroke-dasharray: 320;
+    stroke-dashoffset: 0;
+    animation: draw 3s linear;
+}
+
+@keyframes draw {
+    from {
+        stroke-dashoffset: 320;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
