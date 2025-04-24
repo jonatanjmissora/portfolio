@@ -17,19 +17,19 @@
   }
 
   .title1 {
-    @apply text-3xl font-bold tracking-wider py-1 my-1 text-[var(--color-primary)] w-full
+    @apply sm:text-2xl 2xl:text-3xl font-bold tracking-wider py-1 my-1 text-[var(--color-primary)] w-full
   }
 
   .title2 {
-    @apply text-2xl font-bold tracking-wider py-1 my-1
+    @apply sm:text-xl 2xl:text-2xl font-bold tracking-wider py-1 my-1
   }
 
   .title3 {
-    @apply text-xl font-bold tracking-wider
+    @apply sm:text-lg 2xl:text-xl font-bold tracking-wider
   }
 
   .text {
-    @apply text-sm text-balance
+    @apply sm:text-xs 2xl:text-sm text-balance
   }
 
   .btn {

@@ -29,7 +29,7 @@ export default function Process() {
                             onMouseMoveCapture={handleMouseEvent}
                         >
                             <div className="flex justify-between items-center">
-                                <h2 className="sm:title2 2xl:title1">{process.title}</h2>
+                                <h2 className="title1">{process.title}</h2>
                                 {process.svg}
                             </div>
 

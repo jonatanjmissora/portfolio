@@ -1,5 +1,7 @@
 @import "../../_styles/global.theme.css";
 
+
+
 .my-name {
   font-weight: 700;
   letter-spacing: 4px;
@@ -7,6 +9,113 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* ******************************************************************************** */
+
+#blurry-text-container {
+  width: 23ch;
+  position: absolute;
+  filter: url(#threshold) blur(0.6px);
+  display: block;
+}
+
+#blurry-text1,
+#blurry-text2 {
+  position: absolute;
+  top: 3px;
+  width: 100%;
+  display: inline-block;
+}
+
+#blurry-text1 {
+  position: absolute;
+}
+
+/* ******************************************************************************** */
+
+#poly1,
+#poly1bis,
+#poly2,
+#poly2bis {
+  position: absolute;
+  inset: 0;
+  background-image: url("../../../public/myphoto.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform-origin: center;
+}
+
+#poly1 {
+  transform: scale(1.12, 1.12);
+  animation: poly1 12s linear infinite;
+}
+
+#poly1bis {
+  transform: scale(1.12, 1.12);
+  animation: poly1bis 12s linear infinite;
+  background: red;
+}
+
+#poly2 {
+  transform: scale(1.13, 1.13);
+  animation: poly2 14s linear infinite;
+}
+
+#poly2bis {
+  transform: scale(1.13, 1.13);
+  animation: poly2bis 14s linear infinite;
+}
+
+@keyframes poly1 {
+  0% {
+    clip-path: polygon(50% -50%, 80% -50%, 180% 50%, 150% 50%);
+  }
+
+  100% {
+    clip-path: polygon(-80% 50%, -50% 50%, 50% 150%, 20% 150%);
+  }
+}
+
+@keyframes poly1bis {
+  0% {
+    clip-path: polygon(100%, 0%, 150%, 50%, 155%, 50%, 105%, -5%);
+  }
+
+  100% {
+    clip-path: polygon(-45% 100%, 20% 150%, 25% 150%, -50% 100%);
+  }
+}
+
+@keyframes poly2 {
+  0% {
+    clip-path: polygon(-50% -50%, 150% -50%, 150% -70%, -50% -70%);
+  }
+
+  100% {
+    clip-path: polygon(-50% 180%, 150% 180%, 150% 160%, -50% 160%);
+  }
+}
+
+@keyframes poly2bis {
+  0% {
+    clip-path: polygon(50% -75%, 150% -75%, 150% -80%, 55% -80%);
+  }
+
+  100% {
+    clip-path: polygon(50% 155%, 150% 155%, 150% 150%, 55% 150%);
+  }
+}
+
+.myphoto {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../public/myphoto.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform-origin: center;
+  opacity: light-dark(0.75, 0.25);
 }
 
 /* ******************************************************************************** */
@@ -22,7 +131,7 @@
 }
 
 [data-theme="light"] .brightness {
-  filter: brightness(1.5);
+  filter: brightness(1);
 }
 
 /* ******************************************************************************** */

@@ -1,19 +1,21 @@
 import Image from "next/image"
 import Technos from "./Technos"
 import "./styles.css"
+import BlurryText from "./BlurryText"
 
 export default function Hero() {
   return (
     <div className="w-full gradient">
       <article id="home" className="layout px-[var(--layout-padding-y)] items-start m-0 min-h-screen mx-auto">
         <div className="flex justify-end items-center w-full relative">
+
           <aside className="flex flex-col items-start justify-start gap-2 ml-0 absolute top-1/2 -translate-y-1/2 left-0">
             <div className="flex gap-2">
               <span className="my-name 2xl:text-[5rem] sm:text-[4rem]">Jonatan</span>
               <span className="my-name 2xl:text-[5rem] sm:text-[4rem]">Missora</span>
             </div>
-            <div className="w-full flex gap-8 items-center">
-              <p className="sm:text-3xl 2xl:text-4xl sm:py-1 2xl:py-2">Frontend Developer</p>
+            <div className="w-full flex gap-8 items-center h-[3rem] relative">
+              <BlurryText className={"sm:text-4xl 2xl:text-4xl"} />
               <p className="sm:text-4xl 2xltext-4xl">+3 years</p>
             </div>
             <div className="title3 mt-4">
@@ -25,9 +27,16 @@ export default function Hero() {
 
           </aside>
 
-          <picture className="h-[65dvh] w-[40dvw] relative sm:mr-0 2xl:mr-[5dvw]">
+          {/* <picture className="h-[65dvh] w-[40dvw] relative sm:mr-0 2xl:mr-[5dvw]">
             <Image src="/myphoto.webp" fill alt="avatar" className="object-contain brightness" />
-          </picture>
+            </picture> */}
+          <div className="h-[65dvh] w-[40dvw] relative sm:mr-0 2xl:mr-[5dvw]">
+            <div className="myphoto brightness"></div>
+            {/* <div id="poly1"></div> */}
+            <div id="poly1bis"></div>
+            <div id="poly2"></div>
+            <div id="poly2bis"></div>
+          </div>
         </div>
 
         <Technos />
