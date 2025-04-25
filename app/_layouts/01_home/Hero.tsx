@@ -27,12 +27,9 @@ export default function Hero() {
 
           </aside>
 
-          {/* <picture className="h-[65dvh] w-[40dvw] relative sm:mr-0 2xl:mr-[5dvw]">
-            <Image src="/myphoto.webp" fill alt="avatar" className="object-contain brightness" />
-            </picture> */}
-          <div className="h-[65dvh] w-[40dvw] relative sm:mr-0 2xl:mr-[5dvw]">
+          <div className="h-[64dvh] w-[40dvw] relative sm:mr-0 ">
             <div className="myphoto brightness"></div>
-            {/* <div id="poly1"></div> */}
+            <div id="poly1"></div>
             <div id="poly1bis"></div>
             <div id="poly2"></div>
             <div id="poly2bis"></div>
