@@ -7,10 +7,36 @@ import KatoDev from '@/app/_components/KatoDev'
 import { NAVLINKS } from '@/app/_lib/constants/navlinks'
 import { useLenis } from 'lenis/react'
 import React from 'react'
+import "./styles.css"
+
+const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 export default function Footer() {
 
   const lenis = useLenis()
+
+  const handleMouseOver = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let iteration = 0;
+    const interval = setInterval(() => {
+      const target = e.target as HTMLParagraphElement;
+      target.textContent = target.innerText
+        .split("")
+        .map((letter: string, index: number) => {
+          if (index < iteration) {
+            return target.dataset.value?.[index] ?? letter;
+          }
+
+          return LETTERS[Math.floor(Math.random() * 26)]
+        })
+        .join("");
+
+      if (iteration >= (target.dataset.value || "").length) {
+        clearInterval(interval);
+      }
+      iteration += 1 / 3;
+    }, 40);
+
+  }
 
   return (
     <div className="w-full bg-[var(--layout-bg)]">
@@ -20,7 +46,15 @@ export default function Footer() {
             <ArticleTitle text="Roadmap" />
             <nav className='flex flex-col gap-2 title3 pl-4 py-6 pb-12'>
               {
-                NAVLINKS.map(link => <button key={link.text} onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })} className='text-xl text-left hover:text-[var(--color-primary-hover)]'>{link.text}</button>)
+                NAVLINKS.map(link =>
+                  <button
+                    key={link.text}
+                    onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })} className='hacker-text'
+                    onMouseOver={handleMouseOver}
+                    data-value={link.text.toUpperCase()}
+                  >
+                    {link.text.toUpperCase()}
+                  </button>)
               }
             </nav>
           </div>

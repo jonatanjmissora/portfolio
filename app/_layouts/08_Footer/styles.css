@@ -1,0 +1,11 @@
+.hacker-text {
+  font-family: monospace;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  text-align: left;
+  transition: color 0.3s;
+}
+
+.hacker-text:hover {
+  color: var(--color-primary)
+}

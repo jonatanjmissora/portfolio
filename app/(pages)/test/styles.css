@@ -1,18 +1,6 @@
-#container {
-  font-size: 5rem;
-  width: 12ch;
-  position: relative;
-  filter: url(#threshold) blur(0.6px);
-  display: block;
-}
-
-#text1,
-#text2 {
-  position: absolute;
-  width: 100%;
-  display: inline-block;
-
-  font-family: 'Raleway', sans-serif;
-  font-size: 5rem;
-
+.hacker-text {
+  font-family: monospace;
+  font-size: clamp(3rem, 10vw, 10rem);
+  color: white;
+  letter-spacing: 4px;
 }
