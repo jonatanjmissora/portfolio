@@ -8,6 +8,7 @@
   overflow: hidden;
   box-shadow: var(--border);
   transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+  transform-style: preserve-3d;
 }
 
 .card-glow::before {
@@ -25,8 +26,9 @@
 }
 
 .card-glow:hover {
-  transform: translate(-2px, -2px);
+  transform: translate(-2px, -2px) perspective(500px) rotateY(-10deg) scale(1.05);
   box-shadow: var(--shadow);
+
 }
 
 .card-glow:hover::before {

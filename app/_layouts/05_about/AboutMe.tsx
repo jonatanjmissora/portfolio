@@ -1,5 +1,6 @@
 import ArticleTitle from "@/app/_components/ArticleTitle"
 import { ABOUTME } from "@/app/_lib/constants/about"
+import "./styles.css"
 
 export default function AboutMe() {
 
@@ -11,7 +12,7 @@ export default function AboutMe() {
                 <ArticleTitle text="About me" className="mb-12" />
                 {
                     ABOUTME[lang].map((text, index) => (
-                        <p key={index} className="my-2 title3 font-medium w-full px-4">{text}</p>
+                        <p key={index} className="about my-2 title3 font-medium w-full px-4">{text}</p>
                     ))
                 }
 

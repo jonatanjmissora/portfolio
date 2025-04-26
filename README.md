@@ -37,12 +37,3 @@ Design: idem Process
 
 Contact: typo / iconos hover / links activos
 
-Footer: hacker typo
-
-
-aspose
-
-squoosh
-
-
-
