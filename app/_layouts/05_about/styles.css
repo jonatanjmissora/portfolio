@@ -1,0 +1,13 @@
+@import "../../_styles/global.theme.css";
+
+.about:first-of-type:before {
+  content: "\0022";
+  color: var(--color-primary);
+  padding-right: 0.25rem;
+}
+
+.about:last-of-type:after {
+  content: "\0022";
+  color: var(--color-primary);
+  padding-left: 0.25rem;
+}

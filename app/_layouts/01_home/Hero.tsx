@@ -26,7 +26,7 @@ export default function Hero() {
 
           </aside>
 
-          <div className="sm:h-[71dvh] 2xl:h-[64dvh] sm:w-[35dvw] 2xl:w-[40dvw] relative sm:mr-0 ">
+          <div className="h-[64dvh] w-[40dvw] relative sm:mr-0 ">
             <div className="myphoto brightness"></div>
             <div id="poly1"></div>
             <div id="poly1bis"></div>
