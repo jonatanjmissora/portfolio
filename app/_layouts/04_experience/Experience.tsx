@@ -9,7 +9,7 @@ export default function Experience() {
 
     return (
         <div className="w-full gradient">
-            <article id="expertice" className="layout px - [var(--layout - padding - y)]">
+            <article id="expertice" className="layout px-[var(--layout-padding-y)]">
                 <div className="flex flex-col gap-2 w-full mb-16">
                     <div className="flex items-center gap-12">
                         <h2 className="title1 w-max">Experience</h2>

@@ -1,14 +1,15 @@
 @import "../../_styles/global.theme.css";
 
 .card-glow {
-  margin: 2rem;
+  padding: 2rem;
+  padding-bottom: 3rem;
   border-radius: 1rem;
   position: relative;
   z-index: 1;
   overflow: hidden;
   box-shadow: var(--border);
   transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
-  transform-style: preserve-3d;
+  /* transform-style: preserve-3d; */
 }
 
 .card-glow::before {
@@ -23,12 +24,15 @@
   background-image: radial-gradient(var(--color-primary), transparent, transparent);
   opacity: 0;
   transition: 0.5s, top 0s, left 0s;
+  transform-style: preserve-3d;
+}
+.card-glow svg path {
+  transform-style: preserve-3d;
 }
 
 .card-glow:hover {
-  transform: translate(-2px, -2px) perspective(500px) rotateY(-10deg) scale(1.05);
+  transform: translate(-10px, -10px) rotateY(-5deg) rotateX(-5deg);
   box-shadow: var(--shadow);
-
 }
 
 .card-glow:hover::before {
