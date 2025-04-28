@@ -1,4 +1,5 @@
 "use client"
+
 import Image from "next/image";
 import { useState } from "react";
 import KatoDev from "../../_components/KatoDev";
@@ -12,10 +13,20 @@ import "./styles.css"
 import { PROYECTS } from "@/app/_lib/constants/proyects";
 import ArticleTitle from "@/app/_components/ArticleTitle";
 
+type ProyectsType = {
+  id: number;
+  title: string;
+  img: string;
+  description: string[];
+  github: string;
+  link: string;
+}[]
+
 export default function Home() {
 
-  const [actualProyect, setActualProyect] = useState<number>(1)
-  const [oldProyect, setOldProyect] = useState<number>(PROYECTS.length)
+  const lang = "en"
+  const [actualProyectID, setActualProyectID] = useState<number>(1)
+  const [oldProyectID, setOldProyectID] = useState<number>(PROYECTS[lang].length)
 
   return (
     <div className="w-full bg-[var(--layout-bg)]">
@@ -26,15 +37,15 @@ export default function Home() {
         <div className="flex-1 w-full h-[95%] relative">
 
           {/* IMAGES */}
-          <ProyectImage actualProyect={actualProyect} oldProyect={oldProyect} />
+          <ProyectImage proyects={PROYECTS[lang]} actualProyectID={actualProyectID} oldProyectID={oldProyectID} />
 
           <div className="w-full sm:w-1/3 2xl:w-1/2 absolute bottom-0 left-0 flex flex-col gap-8">
 
             {/* CARD> */}
-            <ProyectCard actualProyect={actualProyect} />
+            <ProyectCard proyects={PROYECTS[lang]} actualProyectID={actualProyectID} />
 
             {/* THUMBNAIL */}
-            <ProyectThumbnail actualProyect={actualProyect} setActualProyect={setActualProyect} setOldProyect={setOldProyect} />
+            <ProyectThumbnail proyects={PROYECTS[lang]} actualProyectID={actualProyectID} setActualProyectID={setActualProyectID} setOldProyectID={setOldProyectID} />
           </div>
         </div>
 
@@ -43,13 +54,13 @@ export default function Home() {
   );
 }
 
-const ProyectImage = ({ actualProyect, oldProyect }: { actualProyect: number, oldProyect: number }) => {
+const ProyectImage = ({ proyects, actualProyectID, oldProyectID }: { proyects: ProyectsType, actualProyectID: number, oldProyectID: number }) => {
   return (
     <>
       {
-        PROYECTS.map(proyect =>
+        proyects.map(proyect =>
 
-          <div key={proyect.id} className={`proyect absolute bottom-0 left-0 w-full h-full ${proyect.id === actualProyect && "actual"} ${proyect.id === oldProyect && "old"}`}>
+          <div key={proyect.id} className={`proyect absolute bottom-0 left-0 w-full h-full ${proyect.id === actualProyectID && "actual"} ${proyect.id === oldProyectID && "old"}`}>
             <div className="proyect-img">
               <Image src={proyect.img} alt={proyect.title} fill className="object-contain" />
             </div>
@@ -60,7 +71,7 @@ const ProyectImage = ({ actualProyect, oldProyect }: { actualProyect: number, ol
   )
 }
 
-const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
+const ProyectCard = ({ proyects, actualProyectID }: { proyects: ProyectsType, actualProyectID: number }) => {
 
   const handleExpand = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const buttonExpanded = e.currentTarget.getAttribute("aria-expanded") === "true" ? "false" : "true"
@@ -70,9 +81,9 @@ const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
   return (
     <section>
       {
-        PROYECTS.map(proyect =>
+        proyects.map(proyect =>
 
-          <div key={proyect.id} className={`card sm:w-[17rem] 2xl:w-[22rem] absolute bottom-full left-0 flex-1 p-6 sm:px-2 2xl:px-8 text-[var(--foreground)] ${actualProyect === proyect.id && "actual"}`}>
+          <div key={proyect.id} className={`card sm:w-[17rem] 2xl:w-[22rem] absolute bottom-full left-0 flex-1 p-6 sm:px-2 2xl:px-8 text-[var(--foreground)] ${actualProyectID === proyect.id && "actual"}`}>
 
             <div className="flex flex-col items-start justify-start">
 
@@ -89,7 +100,13 @@ const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
 
               <div className="card-content">
                 <div className="overflow-hidden">
-                  <div className="text-xs py-4 text-[var(--foreground)] ">{proyect.description}</div>
+                  <div className="text-xs py-4 text-[var(--foreground)] flex flex-col gap-1">
+                    {
+                      proyect.description.map((paragraph, index) => <p key={index}>{paragraph}</p>)
+
+                    }
+
+                  </div>
 
                   <div className="flex flex-col justify-end items-end gap-1">
                     <div className="size-8">{TECHNOS[0].svg}</div>
@@ -104,7 +121,6 @@ const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
 
                 </div>
               </div>
-
 
             </div>
 
@@ -122,20 +138,20 @@ const ProyectCard = ({ actualProyect }: { actualProyect: number }) => {
   )
 }
 
-const ProyectThumbnail = ({ actualProyect, setActualProyect, setOldProyect }: { actualProyect: number, setActualProyect: React.Dispatch<React.SetStateAction<number>>, setOldProyect: React.Dispatch<React.SetStateAction<number>> }) => {
+const ProyectThumbnail = ({ proyects, actualProyectID, setActualProyectID, setOldProyectID }: { proyects: ProyectsType, actualProyectID: number, setActualProyectID: React.Dispatch<React.SetStateAction<number>>, setOldProyectID: React.Dispatch<React.SetStateAction<number>> }) => {
 
-  const nextProyect = actualProyect + 1 > PROYECTS.length ? 1 : actualProyect + 1
-  const prevProyect = actualProyect - 1 === 0 ? PROYECTS.length : actualProyect - 1
+  const nextProyect = actualProyectID + 1 > proyects.length ? 1 : actualProyectID + 1
+  const prevProyect = actualProyectID - 1 === 0 ? proyects.length : actualProyectID - 1
 
   const handleArrow = (direction: string) => {
     const index = direction === "next" ? nextProyect : prevProyect
-    setActualProyect(index)
-    setOldProyect(actualProyect)
+    setActualProyectID(index)
+    setOldProyectID(actualProyectID)
   }
 
   const handleSelect = (index: number) => {
-    setOldProyect(actualProyect)
-    setActualProyect(index)
+    setOldProyectID(actualProyectID)
+    setActualProyectID(index)
   }
 
   return (
@@ -147,12 +163,12 @@ const ProyectThumbnail = ({ actualProyect, setActualProyect, setOldProyect }: { 
         </button>
 
         {
-          PROYECTS.map(proyect =>
+          proyects.map(proyect =>
 
             <div
               key={proyect.id}
               onClick={() => handleSelect(proyect.id)}
-              className={`thumbnail h-full relative rounded-xl shadow-xl flex flex-col gap-2 ${proyect.id === actualProyect && "active"}`}
+              className={`thumbnail h-full relative rounded-xl shadow-xl flex flex-col gap-2 ${proyect.id === actualProyectID && "active"}`}
             >
               <div className="w-[120px] sm:w-[90px] 2xl:w-[120px] h-[170px] sm:h-[160px] 2xl:h-[190px] relative rounded-xl">
                 <Image src={proyect.img} alt={`thumbnail-${proyect.title}`} fill className="object-cover object-right-top" />

@@ -1,5 +1,4 @@
 import { PROCESS } from "@/app/_lib/constants/process"
-import "./styles.css"
 import { Cards } from "@/app/_components/Cards"
 
 export default function Process() {
