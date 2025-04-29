@@ -64,6 +64,10 @@
     @apply text-[var(--foreground)] bg-[var(--color-primary)]
   }
 
+  .btn-circle {
+    @apply text-[var(--color-primary)] border-2 border-[var(--color-primary)] bg-transparent hover:bg-[var(--color-primary)] hover:text-[var(--foreground)] duration-500
+  }
+
   .input {
     @apply bg-[var(--white80)] py-2 px-4 rounded-lg shadow text-[var(--black)] text-center hover:bg-[var(--color-primary25)]
   }

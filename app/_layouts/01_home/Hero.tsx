@@ -1,6 +1,7 @@
 import Technos from "./Technos"
 import "./styles.css"
 import BlurryText from "./BlurryText"
+import ContactMeButton from "./ContactMeButton"
 
 export default function Hero() {
   return (
@@ -22,7 +23,7 @@ export default function Hero() {
               <p className="mt-2 font-medium">Lets work together!</p>
             </div>
 
-            <a href={"/#contact"} className="btn btn-primary title2 px-12 mt-4">Contact Me</a>
+            <ContactMeButton />
 
           </aside>
 
