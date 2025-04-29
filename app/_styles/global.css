@@ -204,7 +204,7 @@ textarea:focus {
 }
 
 .card-glow svg {
-  color: orange;
+  color: var(--color-primary);
   width: 6rem;
   height: 6rem;
   transform-style: preserve-3d;
