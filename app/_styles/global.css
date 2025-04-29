@@ -165,6 +165,16 @@ textarea:focus {
   transform-style: preserve-3d;
 }
 
+.card-glow:hover {
+  transform: translate(-10px, -10px);
+  box-shadow: var(--shadow);
+}
+
+.card-glow:hover h2,
+.card-glow:hover p {
+  transform: translateZ(150px);
+}
+
 .card-glow::before {
   position: absolute;
   z-index: -2;
@@ -180,11 +190,6 @@ textarea:focus {
   transform-style: preserve-3d;
 }
 
-.card-glow:hover {
-  transform: translate(-10px, -10px);
-  box-shadow: var(--shadow);
-}
-
 .card-glow:hover::before {
   opacity: 1;
 }
@@ -196,4 +201,19 @@ textarea:focus {
   inset: 3px;
   background-color: light-dark(#ffffffcc, #000000dd);
   border-radius: 0.9rem;
+}
+
+.card-glow svg {
+  color: orange;
+  width: 6rem;
+  height: 6rem;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  transition: transform 0.15s;
+}
+
+.card-glow:hover svg {
+  transform: scale(1.15);
 }

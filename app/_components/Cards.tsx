@@ -19,6 +19,17 @@ export const Cards = ({ array }: { array: ArrayTypes }) => {
         e.currentTarget.style.setProperty("--x", x + "px")
         e.currentTarget.style.setProperty("--y", y + "px")
 
+        const rect = e.currentTarget.getBoundingClientRect()
+        const dx = e.clientX - rect.left - rect.width / 2
+        const dy = e.clientY - rect.top - rect.height / 2
+        const rotateX = (dx / rect.height) * -30
+        const rotateY = (dy / rect.width) * -30
+        e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+
+    }
+
+    const handleMouseLeaveEvent = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.currentTarget.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`
     }
 
     return (
@@ -30,6 +41,7 @@ export const Cards = ({ array }: { array: ArrayTypes }) => {
                         key={element.title}
                         className="card-glow group"
                         onMouseMoveCapture={handleMouseMoveEvent}
+                        onMouseLeave={handleMouseLeaveEvent}
                     >
                         <div className="flex justify-between items-center">
                             <h2 className="title2">{element.title}</h2>

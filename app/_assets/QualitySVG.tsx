@@ -2,7 +2,7 @@
 export default function QualitySVG() {
   return (
     <svg fill="currentColor" height="800px" width="800px" version="1.1" id="Layer_1"
-      viewBox="0 0 491.52 491.52" className="size-16 text-[var(--foreground)] group-hover:scale-150 group-hover:text-[var(--color-primary)] duration-300">
+      viewBox="0 0 491.52 491.52" className="">
       <g>
         <g>
           <polygon points="341.834,75.025 254.212,75.025 254.212,153.526 371.893,153.526 		" />
