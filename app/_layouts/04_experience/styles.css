@@ -53,7 +53,7 @@
 
 @keyframes draw {
     from {
-        stroke-dashoffset: 320;
+        stroke-dashoffset: 1800;
     }
 
     to {

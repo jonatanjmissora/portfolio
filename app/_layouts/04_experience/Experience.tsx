@@ -4,8 +4,11 @@ import CalendarSVG from "@/app/_assets/CalendarSVG"
 import { useEffect } from "react"
 import "./styles.css"
 import { EXPERTICE } from "@/app/_lib/constants/expertice"
+import ScrollIIndicator from "./ScrollIIndicator"
 
 export default function Experience() {
+
+    
 
     return (
         <div className="w-full gradient">
@@ -17,12 +20,10 @@ export default function Experience() {
                     </div>
                     <div className="title-under bg-[var(--foreground)]"></div>
                 </div>
-                <div className="flex gap-4 w-full pt-4">
+                <div className="flex gap-4 w-full pt-4 border cards-container">
                     <aside className="w-1/6">
-                        <div className="w-1/3 h-full mx-auto ">
-                            <svg width={24} fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="text-[var(--color-primary)] mx-auto h-1/2">
-                                <line className="timeline" x1="12" y1="0" x2="12" y2="200" />
-                            </svg>
+                        <div className="w-1/3 h-full mx-auto">
+                            <ScrollIIndicator />
                         </div>
                     </aside>
 
