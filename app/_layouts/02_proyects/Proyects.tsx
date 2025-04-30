@@ -109,9 +109,9 @@ const ProyectCard = ({ proyects, actualProyectID }: { proyects: ProyectsType, ac
                   </div>
 
                   <div className="flex flex-col justify-end items-end gap-1">
-                    <div className="size-8">{TECHNOS[0].svg}</div>
-                    <div className="size-8">{TECHNOS[1].svg}</div>
-                    <div className="size-8">{TECHNOS[2].svg}</div>
+                    <div className="size-8">{TECHNOS["nextjs"].svg}</div>
+                    <div className="size-8">{TECHNOS["astro"].svg}</div>
+                    <div className="size-8">{TECHNOS["python"].svg}</div>
                   </div>
 
                   <div className="flex gap-8 ml-auto">

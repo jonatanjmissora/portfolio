@@ -1,10 +1,18 @@
 @import "../../_styles/global.theme.css";
 
+.xp-cards-container {
+    --xp-card-height: 12rem;
+    --xp-card-margin: 0.5rem;
+    height: calc((2 * var(--xp-card-margin) + var(--xp-card-height)) * (var(--xp-cards-qnt)));
+}
+
 .expertice-card {
     transition: scale .3s ease-in-out;
     box-shadow: var(--border);
     border-radius: 1rem;
     background: var(--layout-bg);
+    height: var(--xp-card-height);
+    margin: var(--xp-card-margin);
 }
 
 .expertice-card.card-zoom {
@@ -59,4 +67,16 @@
     to {
         stroke-dashoffset: 0;
     }
+}
+
+.tag-icon[data-active="false"] {
+    filter: grayscale(100%) opacity(0.15);
+}
+
+.tag-icon[data-active="true"] {
+    filter: grayscale(0%) opacity(1);
+}
+
+.scroll-ind {
+    height: calc(100% / 7 * 1.5);
 }

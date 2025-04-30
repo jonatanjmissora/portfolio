@@ -1,22 +1,24 @@
 import type { SVGProps } from "react";
 import * as React from "react";
 
-export const TECHNOS = [
-  { name: "Nextjs", svg: <Nextjs className="size-7" /> },
-  { name: "Astro", svg: <Astro className="size-7" /> },
-  { name: "Svelte", svg: <Svelte className="size-7" /> },
-  { name: "Python", svg: <Python className="size-7" /> },
-  { name: "Neon", svg: <Neon className="size-7" /> },
-  { name: "Mongo", svg: <MongoDB className="size-7" /> },
-  { name: "Supa", svg: <Supabase className="size-7" /> },
-  { name: "Fire", svg: <Firebase className="size-7" /> },
-  { name: "Prisma", svg: <Prisma className="size-7" /> },
-  { name: "Drizzle", svg: <Drizzle className="size-7" /> },
-  { name: "Git", svg: <Git className="size-7" /> },
-  { name: "Nodejs", svg: <Nodejs className="size-7" /> },
-  { name: "Hono", svg: <Hono className="size-7" /> },
-  { name: "Figma", svg: <Figma className="size-7" /> },
-]
+export const TECHNOS = {
+  nextjs: { id: 1, name: "Nextjs", svg: <Nextjs className="size-7" /> },
+  astro: { id: 2, name: "Astro", svg: <Astro className="size-7" /> },
+  svelte: { id: 3, name: "Svelte", svg: <Svelte className="size-7" /> },
+  python: { id: 4, name: "Python", svg: <Python className="size-7" /> },
+  neon: { id: 5, name: "Neon", svg: <Neon className="size-7" /> },
+  mongodb: { id: 6, name: "Mongo", svg: <MongoDB className="size-7" /> },
+  supabase: { id: 7, name: "Supa", svg: <Supabase className="size-7" /> },
+  firebase: { id: 8, name: "Fire", svg: <Firebase className="size-7" /> },
+  prisma: { id: 9, name: "Prisma", svg: <Prisma className="size-7" /> },
+  drizzle: { id: 10, name: "Drizzle", svg: <Drizzle className="size-7" /> },
+  git: { id: 11, name: "Git", svg: <Git className="size-7" /> },
+  nodejs: { id: 12, name: "Nodejs", svg: <Nodejs className="size-7" /> },
+  hono: { id: 13, name: "Hono", svg: <Hono className="size-7" /> },
+  figma: { id: 14, name: "Figma", svg: <Figma className="size-7" /> },
+  tailwind: { id: 15, name: "Tailwind", svg: <Tailwind className="size-7" /> },
+  typescript: { id: 16, name: "TScript", svg: <Typescript className="size-7" /> }
+}
 
 function Nextjs(props: SVGProps<SVGSVGElement>) {
   return <svg width="1em" height="1em" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}><mask id="mask0_408_139" style={{
@@ -50,3 +52,6 @@ function Hono(props: SVGProps<SVGSVGElement>) { return <svg xmlns="http://www.w3
 
 function Figma(props: SVGProps<SVGSVGElement>) { return <svg width="1em" height="1em" viewBox="0 0 54 80" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}><g clipPath="url(#clip0_912_3)"><path d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z" fill="#0ACF83" /><path d="M0 39.9998C0 32.6398 5.97333 26.6665 13.3333 26.6665H26.6667V53.3332H13.3333C5.97333 53.3332 0 47.3598 0 39.9998Z" fill="#A259FF" /><path d="M0 13.3333C0 5.97333 5.97333 0 13.3333 0H26.6667V26.6667H13.3333C5.97333 26.6667 0 20.6933 0 13.3333Z" fill="#F24E1E" /><path d="M26.6667 0H40.0001C47.3601 0 53.3334 5.97333 53.3334 13.3333C53.3334 20.6933 47.3601 26.6667 40.0001 26.6667H26.6667V0Z" fill="#FF7262" /><path d="M53.3334 39.9998C53.3334 47.3598 47.3601 53.3332 40.0001 53.3332C32.6401 53.3332 26.6667 47.3598 26.6667 39.9998C26.6667 32.6398 32.6401 26.6665 40.0001 26.6665C47.3601 26.6665 53.3334 32.6398 53.3334 39.9998Z" fill="#1ABCFE" /></g><defs><clipPath id="clip0_912_3"><rect width={53.3333} height={80} fill="white" /></clipPath></defs></svg> }
 
+function Tailwind(props: SVGProps<SVGSVGElement>) { return <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 54 33" width="1em" height="1em" {...props}><g clipPath="url(#a)"><path fill="#38bdf8" fillRule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clipRule="evenodd" /></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h54v32.4H0z" /></clipPath></defs></svg> }
+
+function Typescript(props: SVGProps<SVGSVGElement>) { return <svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" {...props}><path d="M20 0h216c11.046 0 20 8.954 20 20v216c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20V20C0 8.954 8.954 0 20 0Z" fill="#3178C6" /><path d="M150.518 200.475v27.62c4.492 2.302 9.805 4.028 15.938 5.179 6.133 1.151 12.597 1.726 19.393 1.726 6.622 0 12.914-.633 18.874-1.899 5.96-1.266 11.187-3.352 15.678-6.257 4.492-2.906 8.048-6.704 10.669-11.394 2.62-4.689 3.93-10.486 3.93-17.391 0-5.006-.749-9.394-2.246-13.163a30.748 30.748 0 0 0-6.479-10.055c-2.821-2.935-6.205-5.567-10.149-7.898-3.945-2.33-8.394-4.531-13.347-6.602-3.628-1.497-6.881-2.949-9.761-4.359-2.879-1.41-5.327-2.848-7.342-4.316-2.016-1.467-3.571-3.021-4.665-4.661-1.094-1.64-1.641-3.495-1.641-5.567 0-1.899.489-3.61 1.468-5.135s2.362-2.834 4.147-3.927c1.785-1.094 3.973-1.942 6.565-2.547 2.591-.604 5.471-.906 8.638-.906 2.304 0 4.737.173 7.299.518 2.563.345 5.14.877 7.732 1.597a53.669 53.669 0 0 1 7.558 2.719 41.7 41.7 0 0 1 6.781 3.797v-25.807c-4.204-1.611-8.797-2.805-13.778-3.582-4.981-.777-10.697-1.165-17.147-1.165-6.565 0-12.784.705-18.658 2.115-5.874 1.409-11.043 3.61-15.506 6.602-4.463 2.993-7.99 6.805-10.582 11.437-2.591 4.632-3.887 10.17-3.887 16.615 0 8.228 2.375 15.248 7.127 21.06 4.751 5.811 11.963 10.731 21.638 14.759a291.458 291.458 0 0 1 10.625 4.575c3.283 1.496 6.119 3.049 8.509 4.66 2.39 1.611 4.276 3.366 5.658 5.265 1.382 1.899 2.073 4.057 2.073 6.474a9.901 9.901 0 0 1-1.296 4.963c-.863 1.524-2.174 2.848-3.93 3.97-1.756 1.122-3.945 1.999-6.565 2.632-2.62.633-5.687.95-9.2.95-5.989 0-11.92-1.05-17.794-3.151-5.875-2.1-11.317-5.25-16.327-9.451Zm-46.036-68.733H140V109H41v22.742h35.345V233h28.137V131.742Z" fill="#FFF" /></svg> }

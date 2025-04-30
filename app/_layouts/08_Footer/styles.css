@@ -4,6 +4,7 @@
   line-height: 1.75rem;
   text-align: left;
   transition: color 0.3s;
+  width: max-content;
 }
 
 .hacker-text:hover {
