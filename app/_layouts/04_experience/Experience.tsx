@@ -1,15 +1,18 @@
 "use client"
 
 import CalendarSVG from "@/app/_assets/CalendarSVG"
-import { JSX, useEffect } from "react"
+import { JSX, useEffect, useState } from "react"
 import "./styles.css"
 import { EXPERTICE } from "@/app/_lib/constants/expertice"
 
 export default function Experience() {
 
+    const [actualCard, setActualCard] = useState<number>(8)
+
     return (
         <div className="w-full gradient">
             <article id="expertice" className="layout px-[var(--layout-padding-y)]">
+                {actualCard}
                 <div className="flex flex-col gap-2 w-full mb-16">
                     <div className="flex items-center gap-12">
                         <h2 className="title1 w-max">Experience</h2>
@@ -22,9 +25,9 @@ export default function Experience() {
                     style={{ "--xp-cards-qnt": `${EXPERTICE.length}` } as React.CSSProperties}
                 >
 
-                    <ExperticeCards />
+                    <ExperticeCards actualCard={actualCard} setActualCard={setActualCard} />
 
-                    <ScrollIndicator />
+                    <ScrollIndicator actualCard={actualCard} />
 
                 </div>
             </article >
@@ -32,28 +35,43 @@ export default function Experience() {
     )
 }
 
-const ExperticeCards = () => {
+const ExperticeCards = ({actualCard, setActualCard}) => {
 
     useEffect(() => {
 
-        const cards = document.querySelectorAll(".expertice-card")
+        const cards = document.querySelectorAll(".expertice-card-container")
         const icons = document.querySelectorAll(".tag-icon")
         const xpCardsContainer = document.querySelector(".xp-cards-container")
 
         const oberver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
 
-                
-                icons.forEach(icon => {
-                    if ((icon as HTMLElement).dataset.cardid === entry.target.id) {
-                        (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', entry.target.id);
-                        (icon as HTMLElement).dataset.active = "true"
-                    }
-                    else {
-                        (icon as HTMLElement).dataset.active = "false"
-                    }
-                })
-                entry.target.classList.toggle("card-zoom", entry.isIntersecting)
+                if(entry.isIntersecting) {
+                    entry.target.children[1].classList.add("card-zoom")
+                    icons.forEach(icon => {if((icon as HTMLElement).dataset.cardid === entry.target.children[1].id) icon.classList.add("active")});
+                    (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(entry.target.children[1].id, 10)).toString());
+                    console.log(entry.isIntersecting)
+                }
+                else {
+                    entry.target.children[1].classList.remove("card-zoom")
+                    icons.forEach(icon => {if((icon as HTMLElement).dataset.cardid === entry.target.children[1].id) icon.classList.remove("active")});
+                    console.log(entry.isIntersecting)
+                    // (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', "-0.5");
+                }
+                // if(entry.isIntersecting && actualCard !== entry.target.id) {
+                //     console.log("intersecting ", entry.target.id)
+                //     setActualCard(entry.target.id)
+                // } 
+                // icons.forEach(icon => {
+                //     if ((icon as HTMLElement).dataset.cardid === entry.target.id) {
+                //         (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', EXPERTICE.length - entry.target.id);
+                //         (icon as HTMLElement).dataset.active = "true"
+                //     }
+                //     else {
+                //         (icon as HTMLElement).dataset.active = "false"
+                //     }
+                // })
+                // entry.target.classList.toggle("card-zoom", entry.isIntersecting)
             })
         }, { rootMargin: "-50%" }
         )
@@ -68,7 +86,7 @@ const ExperticeCards = () => {
         <>
             {
                 EXPERTICE.map((expertice) => (
-                    <div key={expertice.id} className="w-full flex gap-4">
+                    <div key={expertice.id} className="w-full flex gap-4 expertice-card-container">
                         <aside className="w-1/6">
                             <div className="w-full h-full flex justify-center items-center">
                                 <IconList icons={expertice.tags} cardId={expertice.id} />
@@ -114,7 +132,7 @@ const IconList = ({ icons, cardId }: { icons: JSX.Element[], cardId: number }) =
     )
 }
 
-const ScrollIndicator = () => {
+const ScrollIndicator = ({actualCard}) => {
     return (
         <i className="absolute -z-2 top-0 left-0 bottom-0 w-1/6">
             <svg 

@@ -70,14 +70,14 @@
     }
 }
 
-.tag-icon[data-active="false"] {
+.tag-icon {
     filter: grayscale(100%) opacity(0.15);
 }
 
-.tag-icon[data-active="true"] {
+.tag-icon.active {
     filter: grayscale(0%) opacity(1);
 }
 
 .scroll-ind {
-    height: calc(100% / var(--xp-cards-qnt) * (var(--xp-cards-qnt) - var(--xp-card-actual) + 0.5));
+    height: calc(100% / var(--xp-cards-qnt) * (var(--xp-card-actual) + 0.5));
 }
