@@ -16,7 +16,7 @@
     margin: var(--xp-card-margin);
 }
 
-.expertice-card.card-zoom {
+.expertice-card.active {
     scale: 1.05;
     transition: scale .3s ease-in-out;
     position: relative;
@@ -25,7 +25,7 @@
     box-shadow: var(--shadow);
 }
 
-.expertice-card.card-zoom::before {
+.expertice-card.active::before {
     position: absolute;
     z-index: -2;
     content: "";
@@ -39,7 +39,7 @@
     animation: zoom 1s ease forwards;
 }
 
-.expertice-card.card-zoom::after {
+.expertice-card.active::after {
     content: "";
     position: absolute;
     z-index: -1;
@@ -80,4 +80,9 @@
 
 .scroll-ind {
     height: calc(100% / var(--xp-cards-qnt) * (var(--xp-card-actual) + 0.5));
+    opacity: 0.25;
+}
+
+.scroll-ind.active {
+    opacity: 1;
 }

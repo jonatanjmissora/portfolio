@@ -1,18 +1,15 @@
 "use client"
 
 import CalendarSVG from "@/app/_assets/CalendarSVG"
-import { JSX, useEffect, useState } from "react"
+import { JSX, useEffect } from "react"
 import "./styles.css"
 import { EXPERTICE } from "@/app/_lib/constants/expertice"
 
 export default function Experience() {
 
-    const [actualCard, setActualCard] = useState<number>(8)
-
     return (
         <div className="w-full gradient">
             <article id="expertice" className="layout px-[var(--layout-padding-y)]">
-                {actualCard}
                 <div className="flex flex-col gap-2 w-full mb-16">
                     <div className="flex items-center gap-12">
                         <h2 className="title1 w-max">Experience</h2>
@@ -25,9 +22,9 @@ export default function Experience() {
                     style={{ "--xp-cards-qnt": `${EXPERTICE.length}` } as React.CSSProperties}
                 >
 
-                    <ExperticeCards actualCard={actualCard} setActualCard={setActualCard} />
+                    <ExperticeCards />
 
-                    <ScrollIndicator actualCard={actualCard} />
+                    <ScrollIndicator />
 
                 </div>
             </article >
@@ -35,43 +32,32 @@ export default function Experience() {
     )
 }
 
-const ExperticeCards = ({actualCard, setActualCard}) => {
+const ExperticeCards = () => {
 
     useEffect(() => {
 
         const cards = document.querySelectorAll(".expertice-card-container")
         const icons = document.querySelectorAll(".tag-icon")
         const xpCardsContainer = document.querySelector(".xp-cards-container")
+        const scrollInd = document.querySelector(".scroll-ind")
 
         const oberver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
 
-                if(entry.isIntersecting) {
-                    entry.target.children[1].classList.add("card-zoom")
-                    icons.forEach(icon => {if((icon as HTMLElement).dataset.cardid === entry.target.children[1].id) icon.classList.add("active")});
-                    (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(entry.target.children[1].id, 10)).toString());
-                    console.log(entry.isIntersecting)
+                const card = entry.target.children[1]
+                if (entry.isIntersecting) {
+                    card.classList.add("active")
+                    scrollInd?.classList.add("active")
+                    icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.add("active") });
+                    (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
                 }
                 else {
-                    entry.target.children[1].classList.remove("card-zoom")
-                    icons.forEach(icon => {if((icon as HTMLElement).dataset.cardid === entry.target.children[1].id) icon.classList.remove("active")});
-                    console.log(entry.isIntersecting)
-                    // (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', "-0.5");
+                    card.classList.remove("active")
+                    scrollInd?.classList.remove("active")
+                    icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.remove("active") });
+                    // (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
                 }
-                // if(entry.isIntersecting && actualCard !== entry.target.id) {
-                //     console.log("intersecting ", entry.target.id)
-                //     setActualCard(entry.target.id)
-                // } 
-                // icons.forEach(icon => {
-                //     if ((icon as HTMLElement).dataset.cardid === entry.target.id) {
-                //         (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', EXPERTICE.length - entry.target.id);
-                //         (icon as HTMLElement).dataset.active = "true"
-                //     }
-                //     else {
-                //         (icon as HTMLElement).dataset.active = "false"
-                //     }
-                // })
-                // entry.target.classList.toggle("card-zoom", entry.isIntersecting)
+
             })
         }, { rootMargin: "-50%" }
         )
@@ -118,33 +104,33 @@ const IconList = ({ icons, cardId }: { icons: JSX.Element[], cardId: number }) =
     return (
         <>
             {
-                icons.map((icon, index) => 
-                    <i 
-                        key={index} 
-                        className="tag-icon rounded-full overflow-hidden bg-[var(--inv-foreground)]" 
-                        data-active="false" 
+                icons.map((icon, index) =>
+                    <i
+                        key={index}
+                        className="tag-icon rounded-full overflow-hidden bg-[var(--inv-foreground)]"
+                        data-active="false"
                         data-cardid={cardId}
-                        >
-                            {icon}
+                    >
+                        {icon}
                     </i>)
             }
         </>
     )
 }
 
-const ScrollIndicator = ({actualCard}) => {
+const ScrollIndicator = () => {
     return (
         <i className="absolute -z-2 top-0 left-0 bottom-0 w-1/6">
-            <svg 
-                width={24} 
-                height={24} 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth={3} 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
+            <svg
+                width={24}
+                height={24}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={3}
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="scroll-ind text-[var(--color-primary)] mx-auto"
-                // style={{ "--xp-card-actual": `${EXPERTICE.length}` } as React.CSSProperties}
+            // style={{ "--xp-card-actual": `${EXPERTICE.length}` } as React.CSSProperties}
             >
                 <line className="timeline" x1="12" y1="0" x2="12" y2="2000" />
             </svg>
