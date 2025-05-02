@@ -7,8 +7,6 @@ import { EXPERTICE } from "@/app/_lib/constants/expertice"
 
 export default function Experience() {
 
-    console.log(EXPERTICE.length)
-
     return (
         <div className="w-full gradient">
             <article id="expertice" className="layout px-[var(--layout-padding-y)]">
@@ -40,15 +38,20 @@ const ExperticeCards = () => {
 
         const cards = document.querySelectorAll(".expertice-card")
         const icons = document.querySelectorAll(".tag-icon")
+        const xpCardsContainer = document.querySelector(".xp-cards-container")
 
         const oberver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
 
+                
                 icons.forEach(icon => {
-                    if ((icon as HTMLElement).dataset.cardid === entry.target.id)
-                        // console.log(icon.dataset)
+                    if ((icon as HTMLElement).dataset.cardid === entry.target.id) {
+                        (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', entry.target.id);
                         (icon as HTMLElement).dataset.active = "true"
-                    else (icon as HTMLElement).dataset.active = "false"
+                    }
+                    else {
+                        (icon as HTMLElement).dataset.active = "false"
+                    }
                 })
                 entry.target.classList.toggle("card-zoom", entry.isIntersecting)
             })
@@ -97,7 +100,15 @@ const IconList = ({ icons, cardId }: { icons: JSX.Element[], cardId: number }) =
     return (
         <>
             {
-                icons.map((icon, index) => <i key={index} className="tag-icon rounded-full overflow-hidden bg-[var(--inv-foreground)]" data-active="false" data-cardid={cardId}>{icon}</i>)
+                icons.map((icon, index) => 
+                    <i 
+                        key={index} 
+                        className="tag-icon rounded-full overflow-hidden bg-[var(--inv-foreground)]" 
+                        data-active="false" 
+                        data-cardid={cardId}
+                        >
+                            {icon}
+                    </i>)
             }
         </>
     )
@@ -106,7 +117,17 @@ const IconList = ({ icons, cardId }: { icons: JSX.Element[], cardId: number }) =
 const ScrollIndicator = () => {
     return (
         <i className="absolute -z-2 top-0 left-0 bottom-0 w-1/6">
-            <svg width={24} height={24} fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="scroll-ind text-[var(--color-primary)] mx-auto">
+            <svg 
+                width={24} 
+                height={24} 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth={3} 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="scroll-ind text-[var(--color-primary)] mx-auto"
+                // style={{ "--xp-card-actual": `${EXPERTICE.length}` } as React.CSSProperties}
+            >
                 <line className="timeline" x1="12" y1="0" x2="12" y2="2000" />
             </svg>
         </i>

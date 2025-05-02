@@ -9,8 +9,6 @@ export default function ScrollIIndicator() {
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 100;
   
-    console.log(scrolled)
-
   }, [])
 
   return (

@@ -3,6 +3,7 @@
 .xp-cards-container {
     --xp-card-height: 12rem;
     --xp-card-margin: 0.5rem;
+    --xp-card-actual: 7;
     height: calc((2 * var(--xp-card-margin) + var(--xp-card-height)) * (var(--xp-cards-qnt)));
 }
 
@@ -78,5 +79,5 @@
 }
 
 .scroll-ind {
-    height: calc(100% / 7 * 1.5);
+    height: calc(100% / var(--xp-cards-qnt) * (var(--xp-cards-qnt) - var(--xp-card-actual) + 0.5));
 }

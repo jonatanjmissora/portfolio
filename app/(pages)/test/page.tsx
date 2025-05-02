@@ -22,7 +22,6 @@ export default function Page() {
         .join("");
 
       if (iteration >= (target.dataset.value || "").length) {
-        console.log("Limpio")
         clearInterval(interval);
       }
       iteration += 1 / 3;
