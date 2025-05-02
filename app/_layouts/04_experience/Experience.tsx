@@ -43,20 +43,23 @@ const ExperticeCards = () => {
 
         const oberver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-
                 const card = entry.target.children[1]
-                if (entry.isIntersecting) {
-                    card.classList.add("active")
-                    scrollInd?.classList.add("active")
-                    icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.add("active") });
-                    (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
-                }
-                else {
-                    card.classList.remove("active")
-                    scrollInd?.classList.remove("active")
-                    icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.remove("active") });
-                    // (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
-                }
+                card.classList.toggle("active", entry.isIntersecting)
+                icons.forEach(icon => icon.classList.toggle("active", (icon as HTMLElement).dataset.cardid === card.id));
+
+                // const card = entry.target.children[1]
+                // if (entry.isIntersecting) {
+                //     card.classList.add("active")
+                //     scrollInd?.classList.add("active")
+                //     icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.add("active") });
+                //     (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
+                // }
+                // else {
+                //     card.classList.remove("active")
+                //     scrollInd?.classList.remove("active")
+                //     icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.remove("active") });
+                //     // (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
+                // }
 
             })
         }, { rootMargin: "-50%" }
