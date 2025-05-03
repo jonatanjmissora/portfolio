@@ -38,10 +38,7 @@ const ExperticeCards = () => {
 
         const cards = document.querySelectorAll(".expertice-card-container")
         const icons = document.querySelectorAll(".tag-icon")
-        const xpCardsContainer = document.querySelector(".xp-cards-container")
-        const scrollInd = document.querySelector(".scroll-ind")
         const timeline = document.querySelector(".timeline")
-        console.log(((timeline as SVGPathElement).getTotalLength()))
 
         const oberver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -49,14 +46,11 @@ const ExperticeCards = () => {
                 card.classList.toggle("active", entry.isIntersecting)
 
                 if (entry.isIntersecting) {
-                    scrollInd?.classList.add("active")
                     icons.forEach(icon => { icon.classList.toggle("active", (icon as HTMLElement).dataset.cardid === card.id) });
-                    (scrollInd as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
+                    (timeline as HTMLElement)?.style.setProperty('--xp-card-actual', card.id);
                 }
                 else {
-                    scrollInd?.classList.remove("active")
                     icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.remove("active") });
-                    (scrollInd as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
                 }
 
             })
@@ -121,20 +115,16 @@ const IconList = ({ icons, cardId }: { icons: JSX.Element[], cardId: number }) =
 
 const ScrollIndicator = () => {
     return (
-        <i className="absolute -z-2 top-0 left-0 bottom-0 w-1/6">
+        <i className="absolute -z-0 top-0 left-0 bottom-0 w-1/6">
             <svg
-                width={24}
-                height={24}
+                height="24"
+                width="24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={3}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="scroll-ind text-[var(--color-primary)] mx-auto"
-                // style={{ "--xp-card-actual": `-0.5` } as React.CSSProperties}
+                strokeWidth="3"
+                className="scroll-ind text-[var(--color-primary)] mx-auto h-full"
             >
-                {/* <line className="timeline" x1="12" y1="0" x2="12" y2="2000" /> */}
-                <path className="timeline" d="M12 0, L12 2000"/>
+                <path className="timeline" d="M11 0 L11 1500" />
             </svg>
         </i>
     )

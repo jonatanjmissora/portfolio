@@ -18,6 +18,7 @@ html {
   scroll-behavior: smooth;
   text-wrap: balance;
   letter-spacing: 1.5px;
+  /* font-size: 16px; */
 }
 
 body {

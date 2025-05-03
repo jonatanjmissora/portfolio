@@ -3,8 +3,8 @@
 .xp-cards-container {
     --xp-card-height: 12rem;
     --xp-card-margin: 0.5rem;
-    
-    height: calc((2 * var(--xp-card-margin) + var(--xp-card-height)) * (var(--xp-cards-qnt)));
+
+    /* height: calc((2 * var(--xp-card-margin) + var(--xp-card-height)) * (var(--xp-cards-qnt))); */
 }
 
 .expertice-card {
@@ -78,21 +78,10 @@
     filter: grayscale(0%) opacity(1);
 }
 
-.scroll-ind {
-    --xp-card-actual: -0.5;
-    height: calc(100% / var(--xp-cards-qnt) * (var(--xp-card-actual) - 0.5));
-}
-
-.scroll-ind.active {
+.timeline {
     /* height: calc(100% / var(--xp-cards-qnt) * (var(--xp-card-actual) + 0.5)); */
-     height: 100%;
-    /*stroke-dashoffset: 350;
-    stroke-dasharray: 150;
-    animation : grow 2s linear forwards; */
-}
-
-@keyframes grow {
-    to {
-        stroke-dasharray: 350
-    }
+    /* height: 100%; */
+    stroke-dasharray: 1500px;
+    stroke-dashoffset: calc(1500px - (13rem * (var(--xp-cards-qnt) - (var(--xp-card-actual))) + 6.5rem));
+    /* animation: grow 2s linear forwards; */
 }
