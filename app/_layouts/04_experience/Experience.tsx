@@ -45,21 +45,17 @@ const ExperticeCards = () => {
             entries.forEach((entry) => {
                 const card = entry.target.children[1]
                 card.classList.toggle("active", entry.isIntersecting)
-                icons.forEach(icon => icon.classList.toggle("active", (icon as HTMLElement).dataset.cardid === card.id));
 
-                // const card = entry.target.children[1]
-                // if (entry.isIntersecting) {
-                //     card.classList.add("active")
-                //     scrollInd?.classList.add("active")
-                //     icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.add("active") });
-                //     (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
-                // }
-                // else {
-                //     card.classList.remove("active")
-                //     scrollInd?.classList.remove("active")
-                //     icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.remove("active") });
-                //     // (xpCardsContainer as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
-                // }
+                if (entry.isIntersecting) {
+                    scrollInd?.classList.add("active")
+                    icons.forEach(icon => { icon.classList.toggle("active", (icon as HTMLElement).dataset.cardid === card.id) });
+                    (scrollInd as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
+                }
+                else {
+                    scrollInd?.classList.remove("active")
+                    icons.forEach(icon => { if ((icon as HTMLElement).dataset.cardid === card.id) icon.classList.remove("active") });
+                    (scrollInd as HTMLElement)?.style.setProperty('--xp-card-actual', (EXPERTICE.length - parseInt(card.id, 10)).toString());
+                }
 
             })
         }, { rootMargin: "-50%" }
@@ -133,7 +129,7 @@ const ScrollIndicator = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="scroll-ind text-[var(--color-primary)] mx-auto"
-            // style={{ "--xp-card-actual": `${EXPERTICE.length}` } as React.CSSProperties}
+                style={{ "--xp-card-actual": `-0.5` } as React.CSSProperties}
             >
                 <line className="timeline" x1="12" y1="0" x2="12" y2="2000" />
             </svg>
