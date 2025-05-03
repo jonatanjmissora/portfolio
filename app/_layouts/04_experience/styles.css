@@ -84,9 +84,9 @@
 }
 
 .scroll-ind.active {
-    height: calc(100% / var(--xp-cards-qnt) * (var(--xp-card-actual) + 0.5));
-    /* height: 100%;
-    stroke-dashoffset: 350;
+    /* height: calc(100% / var(--xp-cards-qnt) * (var(--xp-card-actual) + 0.5)); */
+     height: 100%;
+    /*stroke-dashoffset: 350;
     stroke-dasharray: 150;
     animation : grow 2s linear forwards; */
 }

@@ -40,6 +40,8 @@ const ExperticeCards = () => {
         const icons = document.querySelectorAll(".tag-icon")
         const xpCardsContainer = document.querySelector(".xp-cards-container")
         const scrollInd = document.querySelector(".scroll-ind")
+        const timeline = document.querySelector(".timeline")
+        console.log(((timeline as SVGPathElement).getTotalLength()))
 
         const oberver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -129,9 +131,10 @@ const ScrollIndicator = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="scroll-ind text-[var(--color-primary)] mx-auto"
-                style={{ "--xp-card-actual": `-0.5` } as React.CSSProperties}
+                // style={{ "--xp-card-actual": `-0.5` } as React.CSSProperties}
             >
-                <line className="timeline" x1="12" y1="0" x2="12" y2="2000" />
+                {/* <line className="timeline" x1="12" y1="0" x2="12" y2="2000" /> */}
+                <path className="timeline" d="M12 0, L12 2000"/>
             </svg>
         </i>
     )
