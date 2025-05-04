@@ -32,19 +32,18 @@ export default function Experience() {
     )
 }
 
-const observer = new IntersectionObserver((entries) => {
-    const timeline = document.querySelector(".timeline")
-    entries.forEach((entry) => {
-        entry.target.classList.toggle("xp-card-active", entry.isIntersecting);
-        if (entry.isIntersecting) {
-            (timeline as HTMLElement)?.style.setProperty('--xp-card-actual', entry.target.id);
-        }
-    })
-}, { rootMargin: "-50%" })
-
 const ExperticeCards = () => {
 
     useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            const timeline = document.querySelector(".timeline")
+            entries.forEach((entry) => {
+                entry.target.classList.toggle("xp-card-active", entry.isIntersecting);
+                if (entry.isIntersecting) {
+                    (timeline as HTMLElement)?.style.setProperty('--xp-card-actual', entry.target.id);
+                }
+            })
+        }, { rootMargin: "-50%" })
 
         const cards = document.querySelectorAll(".xp-card-container")
         cards.forEach((card) => {

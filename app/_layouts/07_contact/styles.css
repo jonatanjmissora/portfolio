@@ -2,3 +2,68 @@
   --shadow: #66666650;
   text-shadow: var(--shadow) 1px 1px, var(--shadow) 2px 2px, var(--shadow) 3px 3px, var(--shadow) 4px 4px, var(--shadow) 5px 5px, var(--shadow) 6px 6px;
 }
+
+/* .contact-text {
+  position: relative;
+  border: 1px solid blue;
+  width: 100%;
+}
+
+.contact-text span {
+  border: 1px solid red;
+  animation: contact-text-reveal 0.45s ease-in-out forwards;
+  animation-delay: calc(0.2s * var(--i));
+  position: absolute;
+  left: calc(60px * var(--i));
+  opacity: 0;
+}
+
+@keyframes contact-text-reveal {
+  from {
+    transform: translateY(25%);
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+} */
+
+.contact-banner.visible span {
+  animation: contact-text-animation 2s ease-in-out forwards;
+}
+.contact-text:nth-last-of-type(3) {
+  line-height: 1.25;
+}
+.contact-text:nth-last-of-type(1) {
+  line-height: 1.5;
+}
+.contact-text:nth-last-of-type(2) {
+  padding-bottom: 3rem;
+  line-height: 0;
+}
+.contact-text span {
+  display: inline-block;
+  animation-delay: calc(0.1s * var(--i));
+  opacity: 0;
+}
+
+.contact-text:nth-of-type(2) span {
+  animation-delay: calc(0.1s * var(--i) + 0.4s);
+}
+.contact-text:nth-of-type(3) span {
+  animation-delay: calc(0.1s * var(--i) + 0.6s);
+}
+
+@keyframes contact-text-animation {
+  0% {
+    transform: skew(-15deg) rotate(-5deg) translateY(calc(20px + (10px * var(--i))));
+  }
+  20% {
+    transform: skew(-15deg) rotate(-5deg) translateY(calc(-20px - (10px * var(--i))));
+    opacity: 0.5;
+  }
+  40%,100% {
+    transform: skew(-15deg) rotate(-5deg) translateY(calc(-10px * var(--i)));
+    opacity: 1;
+  }
+}
