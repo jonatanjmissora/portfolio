@@ -4,30 +4,19 @@ import LinkedinSVG from "@/app/_assets/LinkedinSVG"
 import MailSVG from "@/app/_assets/MailSVG"
 import "./styles.css"
 import ArticleTitle from "@/app/_components/ArticleTitle"
-import { useEffect } from "react"
+import { useIntersectionObserver } from "@/app/_lib/customHooks/intersectionObserver"
 
 export default function Contact() {
 
-    useEffect(() => {
-        const observer3 = new IntersectionObserver((entries) => {
-            const entry = entries[0]
-            if(entry.isIntersecting) contactBanner?.classList.add("visible")
-            }, { rootMargin: "-40%" })
-            const contactBanner = document.querySelector(".contact-banner")
-        if (contactBanner) {
-            observer3.observe(contactBanner)
-        }
+    const [divRef] = useIntersectionObserver()
 
-        // return () => observer3.disconnect()
-    }, [])
-    
     return (
         <div className="w-full gradient">
             <article id="contact" className="layout px-[var(--layout-padding-y)]">
                 <ArticleTitle text="Contact" className="mb-12" />
                 <div className="flex w-full gap-16">
 
-                    <div className="contact-banner w-7/12 flex flex-col title-1 text-[10rem] font-bold">
+                    <div ref={divRef} className="contact-banner w-7/12 flex flex-col title-1 text-[10rem] font-bold">
 
                         <div className="contact-text w-full text-left">
                             <span style={{ "--i": `0` } as React.CSSProperties}>H</span>
