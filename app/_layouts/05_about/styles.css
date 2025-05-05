@@ -11,3 +11,18 @@
   color: var(--color-primary);
   padding-left: 0.25rem;
 }
+.about-reveal {
+  opacity: 1;
+  right: 0%;
+  background: linear-gradient(to right, transparent, var(--layout-bg) 5%);
+}
+.about-reveal.active {
+  animation: aboutReveal 3s linear forwards;
+  animation-delay: calc(0.5s * var(--i));
+}
+
+@keyframes aboutReveal {
+  to {
+    width: 0%;
+  }
+}
