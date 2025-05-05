@@ -218,3 +218,19 @@ textarea:focus {
 .card-glow:hover svg {
   transform: scale(1.15);
 }
+
+
+/* ********************************************************************************* */
+
+
+.hacker-text {
+  font-family: monospace;
+  text-align: left;
+  transition: color 0.3s;
+  width: max-content;
+  letter-spacing: 1;
+}
+
+.hacker-text:hover {
+  color: var(--color-primary)
+}

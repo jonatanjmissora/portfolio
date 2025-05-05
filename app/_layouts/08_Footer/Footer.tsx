@@ -6,37 +6,11 @@ import ArticleTitle from '@/app/_components/ArticleTitle'
 import KatoDev from '@/app/_components/KatoDev'
 import { NAVLINKS } from '@/app/_lib/constants/navlinks'
 import { useLenis } from 'lenis/react'
-import React from 'react'
-import "./styles.css"
-
-const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+import { HackerText } from '@/app/_components/HackerText'
 
 export default function Footer() {
 
   const lenis = useLenis()
-
-  const handleMouseOver = (e: React.MouseEvent<HTMLButtonElement>) => {
-    let iteration = 0;
-    const interval = setInterval(() => {
-      const target = e.target as HTMLParagraphElement;
-      target.textContent = target.innerText
-        .split("")
-        .map((letter: string, index: number) => {
-          if (index < iteration) {
-            return target.dataset.value?.[index] ?? letter;
-          }
-
-          return LETTERS[Math.floor(Math.random() * 26)]
-        })
-        .join("");
-
-      if (iteration >= (target.dataset.value || "").length) {
-        clearInterval(interval);
-      }
-      iteration += 1 / 3;
-    }, 40);
-
-  }
 
   return (
     <div className="w-full bg-[var(--layout-bg)]">
@@ -49,17 +23,16 @@ export default function Footer() {
                 NAVLINKS.map(link =>
                   <button
                     key={link.text}
-                    onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })} className='hacker-text'
-                    onMouseOver={handleMouseOver}
-                    data-value={link.text.toUpperCase()}
-                  >
-                    {link.text.toUpperCase()}
+                    onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })}
+                    className='w-max'
+                    >
+                    <HackerText text={link.text} className="title3" />
                   </button>)
               }
             </nav>
           </div>
-          <div className='w-1/2 flex justify-center items-center'>
-            <KatoDev className='text-8xl font-bold tracking-widest pt-10' />
+          <div className='w-1/2 flex items-center'>
+            <KatoDev className='text-8xl font-bold pt-10' />
           </div>
         </div>
         <div className="flex flex-row justify-between pb-12 pt-4 border-t w-full">
@@ -67,10 +40,10 @@ export default function Footer() {
           <nav className="flex gap-4">
 
             <a>
-              <LinkedinSVG className='hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6' />
+              <LinkedinSVG className='text-[var(--color-primary)] hover:text-[var(--foreground)] hover:scale-110 cursor-pointer duration-200 size-6 sm:size-5 2xl:size-6' />
             </a>
             <a>
-              <GithubSVG className='hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6' />
+              <GithubSVG className='text-[var(--color-primary)] hover:text-[var(--foreground)] hover:scale-110 cursor-pointer duration-200 size-6 sm:size-5 2xl:size-6' />
             </a>
 
           </nav>

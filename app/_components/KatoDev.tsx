@@ -14,9 +14,9 @@ const spanSizes: Record<string, string> = {
 export default function KatoDev({ className }: { className: string }) {
 
   return (
-    <div className='flex justify-center items-center'>
+    <div className='flex justify-center items-center relative'>
       <LogoSVG className={spanSizes[className]} />
-      <span className={`text-[var(--foreground)] ${className}`}>atoDev</span>
+      <span className={`text-[var(--foreground)] ${className} absolute left-[90%]`}>atoDev</span>
     </div >
   )
 }

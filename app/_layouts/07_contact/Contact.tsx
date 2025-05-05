@@ -5,6 +5,7 @@ import MailSVG from "@/app/_assets/MailSVG"
 import "./styles.css"
 import ArticleTitle from "@/app/_components/ArticleTitle"
 import { useIntersectionObserver } from "@/app/_lib/customHooks/intersectionObserver"
+import { HackerText } from "@/app/_components/HackerText"
 
 export default function Contact() {
 
@@ -54,13 +55,15 @@ export default function Contact() {
 const Socials = () => {
     return (
         <div className="pt-12 flex flex-col items-center gap-4">
-            <div className="flex gap-2 items-center group">
-                <MailSVG className="size-12 group-hover:text-[var(--color-primary-hover)]" />
-                <span className="font-bold tracking-widest text-lg text-gray-500 group-hover:text-[var(--color-primary-hover)]">jonatanjmissora@gmail.com</span>
+            <div className="flex gap-2 items-center group hover:scale-120 duration-200 cursor-pointer">
+                <MailSVG className="size-9 text-[var(--color-primary)] group-hover:rotate-y-360 duration-500" />
+                {/* <span className="font-bold tracking-widest text-lg text-gray-500 group-hover:text-[var(--color-primary-hover)]">jonatanjmissora@gmail.com</span> */}
+                <HackerText text={"jonatanjmissora@gmail.com"} className="font-semibold text-gray-500 text-lg group-hover:text-[var(--color-primary-hover)]"/>
             </div>
-            <div className="flex gap-2 items-center group">
-                <LinkedinSVG className="size-12 group-hover:text-[var(--color-primary-hover)]" />
-                <span className="font-bold tracking-widest text-lg text-gray-500 group-hover:text-[var(--color-primary-hover)]">Linkedin</span>
+            <div className="flex gap-2 items-center group hover:scale-120 duration-200 cursor-pointer">
+                <LinkedinSVG className="size-10 text-[var(--color-primary)] group-hover:rotate-y-360 duration-500" />
+                {/* <span className="font-bold tracking-widest text-lg text-gray-500 group-hover:text-[var(--color-primary-hover)]">Linkedin</span> */}
+                <HackerText text={"Linkedin"} className="font-semibold text-gray-500 text-lg group-hover:text-[var(--color-primary-hover)]"/>
             </div>
         </div>
     )
