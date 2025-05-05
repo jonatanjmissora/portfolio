@@ -43,7 +43,7 @@ export default function AboutMe() {
 
     return (
         <div className="w-full bg-[var(--layout-bg)]">
-            <article ref={divRef} id="about" className="about-container layout items-start px-[var(--layout-padding-y)]">
+            <article ref={divRef} id="about" className="about-container layout pb-12 items-start px-[var(--layout-padding-y)]">
                 <ArticleTitle text="About me" className="mb-12" />
 
                 <div className="tracking-widest">

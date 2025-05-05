@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { useState } from "react";
+import { JSX, useState } from "react";
 import KatoDev from "../../_components/KatoDev";
 import GithubSVG from "@/app/_assets/GithubSVG";
 import LinkSVG from "@/app/_assets/LinkSVG";
@@ -12,12 +12,14 @@ import { TECHNOS } from "@/app/_assets/TechSVG";
 import "./styles.css"
 import { PROYECTS } from "@/app/_lib/constants/proyects";
 import ArticleTitle from "@/app/_components/ArticleTitle";
+import PlusSvg from "@/app/_assets/PlusSvg";
 
 type ProyectsType = {
   id: number;
   title: string;
   img: string;
   description: string[];
+  tags: JSX.Element[];
   github: string;
   link: string;
 }[]
@@ -95,7 +97,8 @@ const ProyectCard = ({ proyects, actualProyectID }: { proyects: ProyectsType, ac
                 onClick={handleExpand}
               >
                 {proyect.title}
-                <ArrowSVG className="size-7 sm:size-6 2xl:size-7 transition-transform duration-300" />
+                <PlusSvg className="size-5 sm:size-4 2xl:size-5 transition-transform duration-100 hover:scale-120" />
+
               </div>
 
               <div className="card-content">
@@ -108,13 +111,15 @@ const ProyectCard = ({ proyects, actualProyectID }: { proyects: ProyectsType, ac
 
                   </div>
 
-                  <div className="flex flex-col justify-end items-end gap-1">
-                    <div className="size-8">{TECHNOS["nextjs"].svg}</div>
-                    <div className="size-8">{TECHNOS["astro"].svg}</div>
-                    <div className="size-8">{TECHNOS["python"].svg}</div>
+                  <div className="flex flex-col justify-end mr-4 items-end gap-1">
+                    {
+                      proyect.tags.map((tag, index) =>
+                        <i key={index} className="size-4">{tag}</i>
+                      )
+                    }
                   </div>
 
-                  <div className="flex gap-8 ml-auto">
+                  <div className="flex gap-8 ml-auto mt-12">
                     {proyect.github && <a href={proyect.github}><GithubSVG className='text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6' /></a>}
                     {proyect.link && <a href={proyect.link}><LinkSVG className='text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] size-6 sm:size-5 2xl:size-6' /></a>}
                   </div>
@@ -158,8 +163,8 @@ const ProyectThumbnail = ({ proyects, actualProyectID, setActualProyectID, setOl
     <>
       <div className={`flex-1 flex gap-x-4 items-center justify-evenly relative z-3`}>
 
-        <button onClick={() => handleArrow("prev")} className="absolute -left-5 sm:-left-8 2xl:-left-5 top-[50%] -translate-y-1/2 z-3 cursor-pointer">
-          <LeftChevronSvg className="size-11 text-[var(--color-primary)]/75" />
+        <button onClick={() => handleArrow("prev")} className="absolute -left-5 sm:-left-8 2xl:-left-5 top-[50%] -translate-y-1/2 z-3 cursor-pointer hover:scale-120 text-[var(--color-primary)] duration-300">
+          <LeftChevronSvg className="size-11" />
         </button>
 
         {
@@ -168,7 +173,7 @@ const ProyectThumbnail = ({ proyects, actualProyectID, setActualProyectID, setOl
             <div
               key={proyect.id}
               onClick={() => handleSelect(proyect.id)}
-              className={`thumbnail h-full relative rounded-xl shadow-xl flex flex-col gap-2 ${proyect.id === actualProyectID && "active"}`}
+              className={`cursor-pointer thumbnail h-full relative rounded-xl shadow-xl flex flex-col gap-2 ${proyect.id === actualProyectID && "active"}`}
             >
               <div className="w-[120px] sm:w-[90px] 2xl:w-[120px] h-[170px] sm:h-[160px] 2xl:h-[190px] relative rounded-xl">
                 <Image src={proyect.img} alt={`thumbnail-${proyect.title}`} fill className="object-cover object-right-top" />
@@ -178,7 +183,7 @@ const ProyectThumbnail = ({ proyects, actualProyectID, setActualProyectID, setOl
           )
         }
 
-        <button onClick={() => handleArrow("next")} className="absolute -right-5 sm:-right-8 2xl:-right-5 top-[50%] -translate-y-1/2 z-3 cursor-pointer">
+        <button onClick={() => handleArrow("next")} className="absolute -right-5 sm:-right-8 2xl:-right-5 top-[50%] -translate-y-1/2 z-3 cursor-pointer hover:scale-120 text-[var(--color-primary)] duration-300">
           <RightChevronSvg className="size-11 text-[var(--color-primary)]/75" />
         </button>
 

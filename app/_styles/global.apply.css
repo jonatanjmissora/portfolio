@@ -29,7 +29,7 @@
   }
 
   .text {
-    @apply sm:text-xs 2xl:text-sm text-balance
+    @apply sm:text-xs 2xl:text-sm
   }
 
   .btn {

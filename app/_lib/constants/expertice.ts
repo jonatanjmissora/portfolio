@@ -21,7 +21,7 @@ const EXPERTICERAW = [
       "Payment dashboard platform - Frontend Mentor - Browser extensions.",
       "Technologies: HTML - CSS - JavaScript."
     ],
-    tags: [TAGS["html5"].svg, TAGS["css"].svg, TAGS["javascript"].svg]
+    tags: [TAGS["html5"].svg, TAGS["css"].svg, TAGS["javascript"].svg, TECHNOS["firebase"].svg]
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const EXPERTICERAW = [
       "Clients: Beauty and health center appointment app - Sport club payment shedule app.",
       "Technologies: Bootstrap - Css superprosessors."
     ],
-    tags: [TAGS["bootstrap"].svg, TAGS["sass"].svg]
+    tags: [TAGS["bootstrap"].svg, TAGS["sass"].svg, TECHNOS["supabase"].svg]
   },
   {
     id: 4,
