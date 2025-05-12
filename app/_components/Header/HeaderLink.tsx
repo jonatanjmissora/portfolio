@@ -1,7 +1,6 @@
 "use client"
 
 import { useLenis } from 'lenis/react'
-import { usePathname } from 'next/navigation'
 
 export default function HeaderLink({ href, text }: { href: string, text: string }) {
 
