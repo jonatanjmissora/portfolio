@@ -1,0 +1,47 @@
+.roadmap-link {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.roadmap-link::before {
+  position: absolute;
+  z-index: 2;
+  content: attr(data-text);
+  left: 125%;
+  top: 50%;
+  opacity: 0;
+  transition: 0.5s;
+  letter-spacing: 5rem;
+  font-size: 6rem;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, var(--foreground), var(--foreground), light-dark(var(--color-primary), black));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.roadmap-link:hover::before {
+  opacity: 0.5;
+  letter-spacing: 2px;
+}
+
+.roadmap-link:nth-of-type(1)::before {
+  transform: translateY(5px);
+}
+
+.roadmap-link:nth-of-type(2)::before {
+  transform: translateY(-31px);
+}
+
+.roadmap-link:nth-of-type(3)::before {
+  transform: translateY(-67px);
+}
+
+.roadmap-link:nth-of-type(4)::before {
+  transform: translateY(-103px);
+}
+
+.roadmap-link:nth-of-type(5)::before {
+  transform: translateY(-138px);
+}

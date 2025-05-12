@@ -77,7 +77,7 @@
 }
 
 .card.actual .card-title[aria-expanded="true"] svg {
-  transform: rotate(180deg);
+  transform: rotate(45deg);
 }
 
 .thumbnail {

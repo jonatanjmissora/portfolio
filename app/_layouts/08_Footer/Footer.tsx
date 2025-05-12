@@ -6,7 +6,7 @@ import ArticleTitle from '@/app/_components/ArticleTitle'
 import KatoDev from '@/app/_components/KatoDev'
 import { NAVLINKS } from '@/app/_lib/constants/navlinks'
 import { useLenis } from 'lenis/react'
-import { HackerText } from '@/app/_components/HackerText'
+import "./styles.css"
 
 export default function Footer() {
 
@@ -18,15 +18,17 @@ export default function Footer() {
         <div className='flex w-full'>
           <div className='w-1/2 flex flex-col'>
             <ArticleTitle text="Roadmap" />
-            <nav className='flex flex-col gap-2 title3 pl-4 py-6 pb-12'>
+            <nav className='flex flex-col title3 py-4 pb-12 relative'>
               {
                 NAVLINKS.map(link =>
                   <button
                     key={link.text}
+                    data-text={link.text}
                     onClick={() => lenis?.scrollTo(link.href, { lerp: 0.001, duration: 0.5 })}
-                    className='w-max'
-                    >
-                    <HackerText text={link.text} className="title3" />
+                    className='w-1/4 text-left px-4 py-1 roadmap-link hover:text-[var(--color-primary)]'
+                  >
+                    {link.text}
+                    {/* <HackerText text={link.text} className="title3" /> */}
                   </button>)
               }
             </nav>
