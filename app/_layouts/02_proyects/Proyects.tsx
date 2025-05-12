@@ -7,8 +7,6 @@ import GithubSVG from "@/app/_assets/GithubSVG";
 import LinkSVG from "@/app/_assets/LinkSVG";
 import RightChevronSvg from "@/app/_assets/RightChevronSVG";
 import LeftChevronSvg from "@/app/_assets/LeftChevronSVG";
-import ArrowSVG from "@/app/_assets/ArrowSVG";
-import { TECHNOS } from "@/app/_assets/TechSVG";
 import "./styles.css"
 import { PROYECTS } from "@/app/_lib/constants/proyects";
 import ArticleTitle from "@/app/_components/ArticleTitle";
